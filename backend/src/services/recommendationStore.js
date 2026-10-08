@@ -17,10 +17,8 @@ function extractIds(result, key) {
 
 async function storeRecommendation(userId, recType, result) {
   const ml = result.ml || {};
-  const record = await Recommendation.create({
-    userId,
-    recDate: todayIso(),
-    recType,
+  const recDate = todayIso();
+  const update = {
     foodIds: recType === 'nutrition' ? extractIds(result, 'food') : [],
     activityIds: recType === 'activity' ? extractIds(result, 'activity') : [],
     summary: (result.why || '').slice(0, 2000),
@@ -28,7 +26,13 @@ async function storeRecommendation(userId, recType, result) {
     mlConfidence: ml.confidence ?? null,
     source: result.source || 'hybrid',
     payload: { targets: (result.plan || {}).targets, metrics: result.metrics },
-  });
+  };
+
+  const record = await Recommendation.findOneAndUpdate(
+    { userId, recDate, recType },
+    { $set: update },
+    { new: true, upsert: true }
+  );
   return record;
 }
 

@@ -7,6 +7,7 @@ const { recent } = require('../controllers/feedbackController');
 
 const router = express.Router();
 router.get('/nutrition', requireAuth, nutrition);
+router.get('/daily', requireAuth, nutrition);
 router.get('/activity/weekly', requireAuth, weekly);
 router.get('/activity', requireAuth, today);
 router.get('/wellness', requireAuth, wellness);

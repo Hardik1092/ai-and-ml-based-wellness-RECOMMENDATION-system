@@ -13,7 +13,7 @@ const recommendationSchema = new mongoose.Schema({
   payload: { type: mongoose.Schema.Types.Mixed, default: null },
 }, { timestamps: true });
 
-recommendationSchema.index({ userId: 1, recDate: 1 });
+recommendationSchema.index({ userId: 1, recDate: 1, recType: 1 }, { unique: true });
 
 recommendationSchema.methods.toPublic = function toPublic() {
   return {

@@ -16,24 +16,56 @@ const explanation = asyncHandler(async (req, res) => {
   const ctx = await buildContext(userId, profile);
   const metadata = await getModelMetadata();
   const extra = await getModelExplanation();
-  const merged = { ...extra, ...metadata };
+
+  const rawMeta = extra || metadata;
+  const serviceOnline = Boolean(rawMeta && (rawMeta.available !== false || rawMeta.model_type));
+  const merged = { ...(extra || {}), ...(metadata || {}) };
+  const modelLoaded = Boolean(serviceOnline && merged.model_type && merged.metrics);
+  const modelAvailable = Boolean(modelLoaded && ctx.ml?.available);
+
   const importances = merged.feature_importances || merged.featureImportances || {};
   const ranked = Object.entries(importances).sort((a, b) => b[1] - a[1]);
   const runs = await MLTrainingRun.find().sort({ createdAt: -1 }).limit(5);
 
+  const nSamples = modelLoaded ? (merged.n_samples ?? merged.nSamples ?? null) : null;
+  const modelType = modelLoaded ? (merged.model_type || merged.modelType || null) : null;
+  const metrics = modelLoaded && merged.metrics ? {
+    accuracy: typeof merged.metrics.accuracy === 'number' ? merged.metrics.accuracy : null,
+    precision: typeof merged.metrics.precision === 'number' ? merged.metrics.precision : null,
+    recall: typeof merged.metrics.recall === 'number' ? merged.metrics.recall : null,
+    f1: typeof merged.metrics.f1 === 'number' ? merged.metrics.f1 : null,
+  } : null;
+
   return success(res, {
-    model_available: ctx.ml.available || false,
+    service_online: serviceOnline,
+    model_loaded: modelLoaded,
+    model_available: modelAvailable,
     ml_enabled: env.mlEnabled,
-    model_type: merged.model_type || merged.modelType || (ctx.ml.available ? ctx.ml.model_type : 'not loaded'),
-    model_params: merged.model_params || merged.modelParams || {},
-    trained_at: merged.trained_at || merged.trainedAt,
-    data_source: merged.data_source || merged.dataSource,
-    n_samples: merged.n_samples || merged.nSamples,
-    metrics: merged.metrics || {},
-    confusion_matrix: merged.confusion_matrix || merged.confusionMatrix,
-    confusion_labels: merged.confusion_labels || merged.confusionLabels,
-    classes: merged.classes || [],
+    status_label: modelAvailable ? 'ready' : (serviceOnline ? 'online_fallback' : 'offline'),
+    fallback_active: !modelAvailable,
+    fallback_reason: !serviceOnline
+      ? 'Machine learning service (port 8000) is currently offline. Recommendations are running on deterministic clinical safety rules.'
+      : (!ctx.ml?.available ? (ctx.ml?.reason || 'Recommendation engine is operating in deterministic safety mode.') : null),
+    model_type: modelType,
+    model_architecture: modelType,
+    modelArchitecture: modelType,
+    model_params: modelLoaded ? (merged.model_params || merged.modelParams || {}) : null,
+    trained_at: modelLoaded ? (merged.trained_at || merged.trainedAt || null) : null,
+    data_source: modelLoaded ? (merged.data_source || merged.dataSource || null) : null,
+    n_samples: nSamples,
+    nSamples: nSamples,
+    training_samples: nSamples,
+    trainingSamples: nSamples,
+    metrics,
+    confusion_matrix: modelLoaded ? (merged.confusion_matrix || merged.confusionMatrix || null) : null,
+    confusion_labels: modelLoaded ? (merged.confusion_labels || merged.confusionLabels || []) : [],
+    classes: modelLoaded ? (merged.classes || []) : [],
     feature_importances: ranked.map(([name, value]) => ({
+      feature: name,
+      importance: value,
+      description: FEATURE_DESCRIPTIONS[name] || '',
+    })),
+    featureImportances: ranked.map(([name, value]) => ({
       feature: name,
       importance: value,
       description: FEATURE_DESCRIPTIONS[name] || '',
@@ -47,6 +79,14 @@ const explanation = asyncHandler(async (req, res) => {
 
 const retrainFromFeedback = asyncHandler(async (_req, res) => {
   const { rows, labels } = await buildTrainingRowsFromFeedback();
+  if (!rows || rows.length < 5) {
+    return success(res, {
+      retrained: false,
+      n_samples: rows ? rows.length : 0,
+      reason: 'Insufficient feedback data for retraining. At least 5 positively-rated plans are required to fine-tune the model.',
+    }, 'Insufficient feedback data for retraining.');
+  }
+
   const result = await retrain(rows, labels, { force: false });
   if (result && result.metrics) {
     await MLTrainingRun.create({

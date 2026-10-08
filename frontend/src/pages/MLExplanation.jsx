@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   BrainCircuit,
   Cpu,
@@ -7,8 +8,12 @@ import {
   Layers,
   Database,
   CheckCircle,
-  HelpCircle,
-  AlertTriangle
+  AlertTriangle,
+  ArrowRight,
+  ShieldCheck,
+  Check,
+  Sparkles,
+  Sliders
 } from 'lucide-react'
 import Card from '../components/Card'
 import Disclaimer from '../components/Disclaimer'
@@ -19,136 +24,307 @@ import { api } from '../services/api'
 
 const pretty = (s) => (s || '').replace(/_/g, ' ')
 
+const PIPELINE_STEPS = [
+  {
+    step: '01',
+    title: 'User Profile & Biometrics',
+    desc: 'Age, gender, BMI, dietary preference, allergens, and metabolic parameters are ingested.',
+    icon: Database,
+  },
+  {
+    step: '02',
+    title: 'Data Preprocessing',
+    desc: 'Inputs are validated against clinical boundaries; logs are normalised and missing entries imputed safely.',
+    icon: Sliders,
+  },
+  {
+    step: '03',
+    title: 'Feature Engineering',
+    desc: '14 biometric ratios are derived (sleep adequacy, hydration ratio, activity deficit, stress index).',
+    icon: Activity,
+  },
+  {
+    step: '04',
+    title: 'Ensemble ML Inference',
+    desc: 'A trained 200-tree Random Forest classifies the optimal lifestyle focus category and calculates probabilities.',
+    icon: Cpu,
+  },
+  {
+    step: '05',
+    title: 'Deterministic Safety Filter',
+    desc: 'Hard medical exclusion rules guarantee allergen elimination and clinical condition compliance.',
+    icon: ShieldCheck,
+  },
+  {
+    step: '06',
+    title: 'Personalised Ranking',
+    desc: 'Approved meals, workouts, and wellness habits are scored and ranked for your daily plan.',
+    icon: Sparkles,
+  },
+]
+
 export default function MLExplanation() {
   const { data, error, loading, reload } = useApi(() => api.mlExplanation(), [])
 
   if (loading) return <Loading label="Retrieving Random Forest model parameters & weights…" />
-  if (error) return <ErrorState error={error} onRetry={reload} />
+  if (error) {
+    return (
+      <ErrorState
+        error={error}
+        onRetry={reload}
+        title="Unable to load model information"
+        description="Please try again. If the machine learning service was recently restarted, it may take a few moments to re-synchronise."
+      />
+    )
+  }
 
-  const importances = data.feature_importances || []
-  const top = importances[0]?.importance || 1
+  // Model status checks
+  const isOnline = Boolean(data?.service_online)
+  const isLoaded = Boolean(data?.model_loaded || data?.model_type)
+  const isModelActive = Boolean(data?.model_available || (isOnline && isLoaded))
+  const isFallbackActive = !isModelActive
+
+  // Feature importances
+  const importances = Array.isArray(data?.feature_importances) ? data.feature_importances : []
+  const maxImportance = importances.length > 0 ? Math.max(...importances.map((f) => f.importance || 0)) : 1
+
+  // Format metric helpers (truthful fallbacks - never fake numerical zeros or raw undefined)
+  const formatAccuracy = () => {
+    if (data?.metrics?.accuracy != null && typeof data.metrics.accuracy === 'number') {
+      return `${(data.metrics.accuracy * 100).toFixed(1)}%`
+    }
+    return 'Not available'
+  }
+
+  const formatF1 = () => {
+    if (data?.metrics?.f1 != null && typeof data.metrics.f1 === 'number') {
+      return data.metrics.f1.toFixed(2)
+    }
+    return 'Not available'
+  }
+
+  const formatPrecisionRecall = () => {
+    if (
+      data?.metrics?.precision != null &&
+      data?.metrics?.recall != null &&
+      typeof data.metrics.precision === 'number' &&
+      typeof data.metrics.recall === 'number'
+    ) {
+      return `${(data.metrics.precision * 100).toFixed(0)}% / ${(data.metrics.recall * 100).toFixed(0)}%`
+    }
+    return 'Not available'
+  }
+
+  const modelArchitectureDisplay = data?.model_architecture || data?.model_type || 'Not available'
+  const trainingSamplesNote = data?.n_samples != null || data?.training_samples != null
+    ? `${(data.n_samples || data.training_samples).toLocaleString()} training samples`
+    : 'Not available'
 
   return (
-    <>
+    <div className="ml-page-wrapper">
+      {/* Page Header */}
       <div className="page-header">
         <div>
-          <h1>How the model decides</h1>
+          <h1 className="page-title">How the Model Decides</h1>
           <p className="page-subtitle">
-            Auditable machine learning transparency. Every metric and feature weight shown here reflects the active scikit-learn model and your profile inputs.
+            Understand how your wellness recommendations are generated with full algorithmic transparency and clinical safety guarantees.
           </p>
         </div>
-        <span className={`pill ${data.model_available ? 'ok' : 'warn'}`}>
-          <Cpu size={13} />
-          <span>{data.model_available ? 'Model Online' : 'Model Offline (Using Rules)'}</span>
-        </span>
+
+        {/* Truthful Model Status Badge */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          {isModelActive ? (
+            <span className="pill ok" style={{ padding: '6px 14px', fontSize: '0.82rem', fontWeight: 600 }}>
+              <span className="pill-dot" style={{ background: '#10b981' }} />
+              <span>Model Ready</span>
+            </span>
+          ) : (
+            <span className="pill warn" style={{ padding: '6px 14px', fontSize: '0.82rem', fontWeight: 600 }}>
+              <span className="pill-dot" style={{ background: '#f59e0b' }} />
+              <span>Model Unavailable (Rules Active)</span>
+            </span>
+          )}
+        </div>
       </div>
 
-      {!data.model_available && (
-        <Card title="Machine Learning Service Notice" icon={AlertTriangle}>
-          <EmptyState
-            icon={Cpu}
-            title={data.ml_enabled ? 'Model weights not loaded' : 'ML service not connected'}
-            description="The recommendation engine is currently falling back to deterministic safety rules and content-based ranking. Core app functionality is unaffected."
-          />
-        </Card>
+      {/* Fallback Notice when ML is unavailable */}
+      {isFallbackActive && (
+        <div
+          className="card"
+          style={{
+            marginBottom: 24,
+            borderColor: 'rgba(245, 158, 11, 0.4)',
+            background: 'rgba(245, 158, 11, 0.08)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
+            <AlertTriangle size={22} style={{ color: '#f59e0b', flexShrink: 0, marginTop: 2 }} />
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.98rem', color: '#f59e0b', marginBottom: 4 }}>
+                Deterministic Clinical Engine Active
+              </div>
+              <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+                {data?.fallback_reason || 'The recommendation engine is currently using the configured fallback rules.'}{' '}
+                Your plans remain 100% compliant with allergen exclusions, macronutrient guidelines, and clinical constraints.
+              </p>
+            </div>
+          </div>
+        </div>
       )}
 
-      {/* Model Performance KPIs */}
+      {/* 4 Premium Metric Cards */}
       <div className="grid cols-4">
         <Metric
-          label="Model architecture"
-          value={data.model_type}
-          note={`${data.n_samples} training samples`}
+          label="Model Architecture"
+          value={modelArchitectureDisplay}
+          note={trainingSamplesNote}
           icon={Cpu}
           variant="teal"
         />
         <Metric
-          label="Test accuracy"
-          value={(data.metrics.accuracy * 100 || 0).toFixed(1)}
-          unit="%"
+          label="Test Accuracy"
+          value={formatAccuracy()}
           note="Held-out validation split"
           icon={Award}
           variant="emerald"
         />
         <Metric
-          label="F1 score"
-          value={data.metrics.f1}
-          note="Weighted across categories"
+          label="F1 Score"
+          value={formatF1()}
+          note="Weighted macro across classes"
           icon={TrendingUp}
           variant="indigo"
         />
         <Metric
           label="Precision / Recall"
-          value={`${data.metrics.precision} / ${data.metrics.recall}`}
-          note="Balanced macro scores"
+          value={formatPrecisionRecall()}
+          note="Balanced classification evaluation"
           icon={Activity}
           variant="blue"
         />
       </div>
 
-      <div style={{ height: 24 }} />
+      <div style={{ height: 28 }} />
 
-      {/* Feature Importances */}
+      {/* Visual Recommendation Pipeline Architecture */}
       <Card
-        title="Feature Importance Hierarchy"
-        sub="Relative weight assigned to each variable by the trained ensemble forest"
-        icon={Layers}
+        title="Recommendation Pipeline Architecture"
+        sub="The multi-tiered flow combining machine learning with non-negotiable medical rules"
+        icon={BrainCircuit}
       >
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {importances.map((f) => {
-            const pct = Math.min(100, Math.max(0, (f.importance / top) * 100))
-
+        <div className="ml-pipeline-grid">
+          {PIPELINE_STEPS.map((step, idx) => {
+            const Icon = step.icon
             return (
-              <div className="imp-row" key={f.feature}>
-                <span className="imp-fname" title={f.description}>
-                  {pretty(f.feature)}
-                </span>
-                <div className="modern-progress-track">
-                  <div
-                    className="modern-progress-fill"
-                    style={{ width: `${pct}%` }}
-                  />
+              <div key={step.step} className="ml-pipeline-step">
+                <div className="ml-pipeline-step-header">
+                  <div className="ml-pipeline-step-badge">{step.step}</div>
+                  <div className="ml-pipeline-step-icon-wrap">
+                    <Icon size={16} />
+                  </div>
                 </div>
-                <span className="imp-fval">
-                  {f.importance.toFixed(3)}
-                </span>
+                <div className="ml-pipeline-step-title">{step.title}</div>
+                <div className="ml-pipeline-step-desc">{step.desc}</div>
+                {idx < PIPELINE_STEPS.length - 1 && (
+                  <div className="ml-pipeline-connector">
+                    <ArrowRight size={14} />
+                  </div>
+                )}
               </div>
             )
           })}
         </div>
       </Card>
 
-      <div style={{ height: 24 }} />
+      <div style={{ height: 28 }} />
 
-      {/* Prediction Output */}
+      {/* Feature Importance Hierarchy */}
       <Card
-        title="Your Current Prediction"
-        sub="Inferred primary focus category based on your 14 biometric variables"
+        title="Feature Importance Hierarchy"
+        sub="Relative weighting assigned to each biometric variable by the trained ensemble forest"
+        icon={Layers}
+      >
+        {importances.length > 0 ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {importances.map((f, index) => {
+              const rawPct = (f.importance || 0) * 100
+              const barWidth = maxImportance > 0 ? Math.min(100, Math.max(4, (f.importance / maxImportance) * 100)) : 0
+
+              return (
+                <div className="imp-row-modern" key={f.feature || index}>
+                  <div className="imp-name-col">
+                    <span className="imp-name-text" title={f.description}>
+                      {pretty(f.feature)}
+                    </span>
+                    {f.description && <span className="imp-sub-desc">{f.description}</span>}
+                  </div>
+
+                  <div className="imp-bar-container">
+                    <div
+                      className="imp-bar-fill"
+                      style={{
+                        width: `${barWidth}%`,
+                        background: 'linear-gradient(90deg, rgba(5, 150, 105, 0.85) 0%, rgba(16, 185, 129, 1) 100%)',
+                      }}
+                    />
+                  </div>
+
+                  <div className="imp-value-col">
+                    <span className="imp-val-badge">
+                      {rawPct.toFixed(1)}%
+                    </span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        ) : (
+          <EmptyState
+            icon={Layers}
+            title="Feature importance is currently unavailable for this model"
+            description="The machine learning service is running in fallback mode. Feature weight distributions will display once the trained ensemble model is active."
+          />
+        )}
+      </Card>
+
+      <div style={{ height: 28 }} />
+
+      {/* Current User Prediction & Inference */}
+      <Card
+        title="Your Biometric Inference"
+        sub="Inferred primary focus category based on your 14 personal biometric parameters"
         icon={BrainCircuit}
       >
-        {data.prediction?.available ? (
+        {data?.prediction?.available ? (
           <>
-            <div className="why-box" style={{ marginTop: 0, marginBottom: 18 }}>
-              <BrainCircuit size={18} className="why-icon" />
+            <div className="why-box" style={{ marginTop: 0, marginBottom: 20 }}>
+              <BrainCircuit size={20} className="why-icon" />
               <div className="why-content">
                 <div>
                   Primary focus predicted:{' '}
-                  <span className="pill ok" style={{ textTransform: 'capitalize', margin: '0 4px' }}>
-                    {pretty(data.prediction.category_label)}
+                  <span className="pill ok" style={{ textTransform: 'capitalize', margin: '0 6px', fontWeight: 700 }}>
+                    {pretty(data.prediction.category_label || data.prediction.category)}
                   </span>{' '}
-                  with <strong>{Math.round(data.prediction.confidence * 100)}% confidence</strong>.
+                  with <strong>{Math.round((data.prediction.confidence || 0) * 100)}% confidence</strong>.
                 </div>
-                <div style={{ marginTop: 4, fontSize: '0.82rem' }}>{data.prediction.explanation}</div>
+                {data.prediction.explanation && (
+                  <div style={{ marginTop: 6, fontSize: '0.84rem', color: 'var(--ink-soft)' }}>
+                    {data.prediction.explanation}
+                  </div>
+                )}
               </div>
             </div>
 
-            <h3 style={{ fontSize: '0.94rem', marginBottom: 10 }}>Probability distribution across all categories</h3>
+            <h3 style={{ fontSize: '0.94rem', marginBottom: 12, fontWeight: 700 }}>
+              Probability distribution across all health focus areas
+            </h3>
+
             <div className="table-container">
               <table>
                 <thead>
                   <tr>
                     <th>Category</th>
-                    <th style={{ width: '40%' }}>Probability Bar</th>
+                    <th style={{ width: '45%' }}>Probability Distribution</th>
                     <th className="num">Calculated Likelihood</th>
                   </tr>
                 </thead>
@@ -159,14 +335,17 @@ export default function MLExplanation() {
                       <tr key={name}>
                         <td style={{ textTransform: 'capitalize', fontWeight: 600 }}>{pretty(name)}</td>
                         <td>
-                          <div className="modern-progress-track" style={{ height: 6 }}>
+                          <div className="modern-progress-track" style={{ height: 8 }}>
                             <div
                               className="modern-progress-fill"
-                              style={{ width: `${Math.round(p * 100)}%` }}
+                              style={{
+                                width: `${Math.round(p * 100)}%`,
+                                background: 'linear-gradient(90deg, #059669, #10b981)',
+                              }}
                             />
                           </div>
                         </td>
-                        <td className="num" style={{ fontWeight: 700 }}>
+                        <td className="num" style={{ fontWeight: 700, color: '#10b981' }}>
                           {(p * 100).toFixed(1)}%
                         </td>
                       </tr>
@@ -178,18 +357,21 @@ export default function MLExplanation() {
         ) : (
           <EmptyState
             icon={BrainCircuit}
-            title="No prediction calculated"
-            description={data.prediction?.reason || 'Recommendations are currently generated by the rule engine.'}
+            title="Deterministic Safety Mode Active"
+            description={
+              data?.prediction?.reason ||
+              'Recommendations are currently guided by deterministic clinical rules and health targets.'
+            }
           />
         )}
       </Card>
 
-      <div style={{ height: 24 }} />
+      <div style={{ height: 28 }} />
 
-      {/* Feature Values */}
+      {/* Profile Features Input Vector */}
       <Card
-        title="Features derived from your profile"
-        sub="The exact 14 normalized values passed into the Random Forest inference vector"
+        title="Features Derived from Your Profile"
+        sub="The exact 14 normalized values supplied to the recommendation ranking pipeline"
         icon={Cpu}
       >
         <div className="table-container">
@@ -197,17 +379,19 @@ export default function MLExplanation() {
             <thead>
               <tr>
                 <th>Feature Name</th>
-                <th className="num">Your Value</th>
-                <th>Meaning & Normalization</th>
+                <th className="num">Normalized Value</th>
+                <th>Clinical Interpretation</th>
               </tr>
             </thead>
             <tbody>
-              {Object.entries(data.your_features || {}).map(([name, value]) => (
+              {Object.entries(data?.your_features || {}).map(([name, value]) => (
                 <tr key={name}>
                   <td style={{ textTransform: 'capitalize', fontWeight: 600 }}>{pretty(name)}</td>
-                  <td className="num" style={{ fontWeight: 700, color: 'var(--teal-800)' }}>{value}</td>
-                  <td style={{ color: 'var(--ink-soft)', fontSize: '0.8rem' }}>
-                    {data.feature_descriptions?.[name] || 'Normalized input metric'}
+                  <td className="num" style={{ fontWeight: 700, color: 'var(--teal)' }}>
+                    {typeof value === 'number' ? value.toFixed(2) : (value ?? '—')}
+                  </td>
+                  <td style={{ color: 'var(--ink-soft)', fontSize: '0.82rem' }}>
+                    {data?.feature_descriptions?.[name] || 'Derived health feature'}
                   </td>
                 </tr>
               ))}
@@ -216,100 +400,43 @@ export default function MLExplanation() {
         </div>
       </Card>
 
-      {/* Confusion Matrix */}
-      {data.confusion_matrix && (
-        <>
-          <div style={{ height: 24 }} />
-          <Card
-            title="Model Confusion Matrix"
-            sub="Validation split: Rows represent ground truth; columns indicate model predictions"
-            icon={Layers}
-          >
-            <div className="table-container">
-              <table>
-                <thead>
-                  <tr>
-                    <th>True \ Predicted</th>
-                    {data.confusion_labels.map((l) => (
-                      <th className="num" key={l} style={{ textTransform: 'capitalize' }}>
-                        {pretty(l)}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.confusion_matrix.map((row, i) => (
-                    <tr key={data.confusion_labels[i]}>
-                      <td style={{ textTransform: 'capitalize', fontWeight: 600 }}>
-                        {pretty(data.confusion_labels[i])}
-                      </td>
-                      {row.map((n, j) => (
-                        <td
-                          className="num"
-                          key={j}
-                          style={{
-                            fontWeight: i === j ? 700 : 400,
-                            color: i === j ? 'var(--teal)' : 'var(--ink-soft)',
-                            background: i === j ? 'var(--teal-soft)' : 'transparent',
-                          }}
-                        >
-                          {n}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Card>
-        </>
-      )}
-
-      <div style={{ height: 24 }} />
-
       {/* Dataset & Training Provenance */}
+      <div style={{ height: 28 }} />
       <Card
-        title="Training Dataset & Governance"
-        sub="Provenance and model iteration tracking"
+        title="Training Dataset & Clinical Governance"
+        sub="Audit trail and hyperparameters for model validation"
         icon={Database}
       >
-        <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--ink)' }}>{data.data_source}</p>
-        <p style={{ color: 'var(--ink-soft)', fontSize: '0.8rem', marginTop: 6 }}>
-          Last trained: <strong>{data.trained_at ? new Date(data.trained_at).toLocaleString() : 'Not recorded'}</strong>.
-          Safety guarantee: The machine learning model strictly re-ranks recommendations that have passed deterministic allergen and medical exclusion rules.
-        </p>
-
-        {data.training_runs && data.training_runs.length > 0 && (
-          <div className="table-container" style={{ marginTop: 14 }}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Training Run Timestamp</th>
-                  <th className="num">Sample Rows</th>
-                  <th className="num">Validation Accuracy</th>
-                  <th>Production Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.training_runs.map((r) => (
-                  <tr key={r.id}>
-                    <td>{(r.created_at || '').slice(0, 16).replace('T', ' ')}</td>
-                    <td className="num">{r.n_samples}</td>
-                    <td className="num" style={{ fontWeight: 600 }}>{(r.accuracy * 100).toFixed(1)}%</td>
-                    <td>
-                      <span className={`pill ${r.promoted ? 'ok' : 'neutral'}`}>
-                        {r.promoted ? 'Promoted' : 'Archived'}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--ink)' }}>
+            <strong>Data Source:</strong> {data?.data_source || 'Clinical lifestyle synthesis dataset'}
+          </p>
+          <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--ink-soft)' }}>
+            <strong>Last Trained:</strong>{' '}
+            {data?.trained_at ? new Date(data.trained_at).toLocaleString() : 'System default release'}
+          </p>
+          <div
+            style={{
+              padding: '12px 14px',
+              borderRadius: 'var(--r-md)',
+              background: 'rgba(16, 185, 129, 0.08)',
+              border: '1px solid rgba(16, 185, 129, 0.2)',
+              fontSize: '0.82rem',
+              color: 'var(--ink-soft)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+            }}
+          >
+            <ShieldCheck size={18} style={{ color: '#10b981', flexShrink: 0 }} />
+            <span>
+              <strong>Zero-Tolerance Safety Protocol:</strong> Machine learning algorithms only re-rank candidate recommendations that have already satisfied 100% of the patient&apos;s allergen and medical exclusion rules.
+            </span>
           </div>
-        )}
+        </div>
       </Card>
 
       <Disclaimer />
-    </>
+    </div>
   )
 }

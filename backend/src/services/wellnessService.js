@@ -53,28 +53,54 @@ function calculateWellnessScore(logs, metrics) {
     };
   }
 
-  let nutrition = ratioScore(summary.avg_calories, metrics.calorie_target, true);
-  let nutritionNote;
-  if (nutrition === null) {
-    nutrition = Math.round(Math.min(summary.count / 7, 1) * 100);
-    nutritionNote = 'Based on logging consistency (no calorie intake logged).';
+  const catEntries = [];
+
+  const rawNutrition = ratioScore(summary.avg_calories, metrics.calorie_target, true);
+  if (rawNutrition !== null) {
+    catEntries.push({ key: 'nutrition', score: rawNutrition, note: 'How close your logged intake was to your calorie target.' });
   } else {
-    nutritionNote = 'How close your logged intake was to your calorie target.';
+    catEntries.push({ key: 'nutrition', score: null, note: 'No calorie intake logged yet this week.' });
   }
 
-  const activitySteps = ratioScore(summary.avg_steps, STEPS_TARGET) || 0;
-  const activityMinutes = ratioScore(summary.avg_exercise_minutes, EXERCISE_MINUTES_TARGET) || 0;
-  const activity = Math.round(0.5 * activitySteps + 0.5 * activityMinutes);
-  const sleep = ratioScore(summary.avg_sleep, SLEEP_TARGET_HOURS) || 0;
-  const hydration = ratioScore(summary.avg_water, metrics.water_target_ml) || 0;
+  const hasActivity = summary.avg_steps !== null || summary.avg_exercise_minutes !== null;
+  if (hasActivity) {
+    const sScore = ratioScore(summary.avg_steps, STEPS_TARGET) ?? 50;
+    const mScore = ratioScore(summary.avg_exercise_minutes, EXERCISE_MINUTES_TARGET) ?? 50;
+    const actScore = Math.round(0.5 * sScore + 0.5 * mScore);
+    catEntries.push({ key: 'activity', score: actScore, note: 'Average of your step and exercise-minute achievement.' });
+  } else {
+    catEntries.push({ key: 'activity', score: null, note: 'No movement or steps recorded yet this week.' });
+  }
 
-  const categories = {
-    nutrition: { score: nutrition, weight: WELLNESS_SCORE_WEIGHTS.nutrition, note: nutritionNote },
-    activity: { score: activity, weight: WELLNESS_SCORE_WEIGHTS.activity, note: 'Average of your step and exercise-minute achievement.' },
-    sleep: { score: sleep, weight: WELLNESS_SCORE_WEIGHTS.sleep, note: `Logged sleep against the ${SLEEP_TARGET_HOURS} h guideline.` },
-    hydration: { score: hydration, weight: WELLNESS_SCORE_WEIGHTS.hydration, note: 'Logged water against your personal water target.' },
-  };
-  const overall = Math.round(Object.values(categories).reduce((s, c) => s + c.score * c.weight, 0));
+  const rawSleep = ratioScore(summary.avg_sleep, SLEEP_TARGET_HOURS);
+  if (rawSleep !== null) {
+    catEntries.push({ key: 'sleep', score: rawSleep, note: `Logged sleep against the ${SLEEP_TARGET_HOURS} h guideline.` });
+  } else {
+    catEntries.push({ key: 'sleep', score: null, note: 'No sleep duration logged yet this week.' });
+  }
+
+  const rawHydration = ratioScore(summary.avg_water, metrics.water_target_ml);
+  if (rawHydration !== null) {
+    catEntries.push({ key: 'hydration', score: rawHydration, note: 'Logged water against your personal water target.' });
+  } else {
+    catEntries.push({ key: 'hydration', score: null, note: 'No water intake logged yet this week.' });
+  }
+
+  const scoredEntries = catEntries.filter((c) => c.score !== null);
+  const overall = scoredEntries.length
+    ? Math.round(scoredEntries.reduce((s, c) => s + c.score, 0) / scoredEntries.length)
+    : Math.round(Math.min(summary.count / 7, 1) * 75);
+
+  const categories = Object.fromEntries(
+    catEntries.map((c) => [
+      c.key,
+      {
+        score: c.score,
+        weight: WELLNESS_SCORE_WEIGHTS[c.key],
+        note: c.note,
+      },
+    ]),
+  );
 
   return {
     available: true,

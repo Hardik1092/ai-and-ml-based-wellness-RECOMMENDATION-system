@@ -55,25 +55,26 @@ export default function ScorePanel({ score }) {
         <div className="score-bars-container">
           {rows.map(([name, item]) => {
             const Icon = CATEGORY_ICONS[name.toLowerCase()] || Sparkles
-            const val = item.score ?? 0
-            const isWarn = val < 60
+            const hasVal = item.score !== null && item.score !== undefined
+            const val = hasVal ? item.score : 0
+            const isWarn = hasVal && val < 60
 
             return (
               <div className="score-category-row" key={name}>
-                <div className="category-name-wrap">
-                  <Icon size={15} style={{ color: isWarn ? 'var(--amber)' : 'var(--teal)' }} />
+                <div className="category-name-wrap" title={item.note || ''}>
+                  <Icon size={15} style={{ color: isWarn ? 'var(--amber)' : (hasVal ? 'var(--teal)' : 'var(--ink-faint)') }} />
                   <span>{name}</span>
                 </div>
 
                 <div className="modern-progress-track">
                   <div
                     className={`modern-progress-fill ${isWarn ? 'warn' : ''}`}
-                    style={{ width: `${Math.min(100, Math.max(0, val))}%` }}
+                    style={{ width: hasVal ? `${Math.min(100, Math.max(0, val))}%` : '0%' }}
                   />
                 </div>
 
-                <div className="category-score-val">
-                  {val}%
+                <div className="category-score-val" style={{ color: hasVal ? undefined : 'var(--ink-faint)', fontSize: hasVal ? undefined : '0.76rem' }}>
+                  {hasVal ? `${val}%` : 'Not logged'}
                 </div>
               </div>
             )

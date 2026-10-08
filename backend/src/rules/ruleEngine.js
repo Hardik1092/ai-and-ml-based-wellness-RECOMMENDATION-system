@@ -1,10 +1,12 @@
 const { activityRules } = require('./activityRules');
 const { bmiRules } = require('./bmiRules');
+const { medicalRules } = require('./medicalRules');
 const { dietaryConstraints, nutritionRules } = require('./nutritionRules');
 const { wellnessRules } = require('./wellnessRules');
 
 function evaluateRules(profile, metrics, logs = []) {
   const fired = [
+    ...medicalRules(profile, metrics),
     ...bmiRules(metrics),
     ...nutritionRules(metrics, profile),
     ...activityRules(metrics, profile),

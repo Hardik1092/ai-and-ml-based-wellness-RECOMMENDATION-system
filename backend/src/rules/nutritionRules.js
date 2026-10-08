@@ -10,20 +10,74 @@ function dietaryConstraints(profile) {
 
 function isFoodAllowed(food, constraints) {
   const pref = constraints.food_preference;
-  const vegan = food.vegan;
-  const vegetarian = food.vegetarian;
-  const allergens = food.allergenTags || food.allergens || [];
-  const name = (food.foodName || food.food_name || '').toLowerCase();
+  const vegan = Boolean(food.vegan);
+  const vegetarian = Boolean(food.vegetarian);
+  const allergens = (food.allergenTags || food.allergens || []).map((t) => String(t).toLowerCase().trim());
+  const name = String(food.foodName || food.food_name || '').toLowerCase();
+  const desc = String(food.description || '').toLowerCase();
+  const category = String(food.category || '').toLowerCase();
 
   if (pref === 'vegan' && !vegan) return [false, 'not vegan'];
   if (pref === 'vegetarian' && !vegetarian) return [false, 'contains meat or fish'];
 
-  const blocked = new Set(constraints.excluded_allergens || []);
-  const hit = allergens.filter((a) => blocked.has(a));
-  if (hit.length) return [false, `contains allergen: ${hit.sort().join(', ')}`];
+  const excluded = (constraints.excluded_allergens || []).map((a) => String(a).toLowerCase().trim());
+  for (const allergy of excluded) {
+    if (!allergy) continue;
+    // Direct allergen tag match
+    if (allergens.includes(allergy)) return [false, `contains allergen: ${allergy}`];
+    
+    // Dairy / Milk
+    if (allergy === 'dairy' || allergy === 'milk') {
+      if (allergens.includes('milk') || allergens.includes('dairy') || category === 'dairy' || name.includes('paneer') || name.includes('yogurt') || name.includes('curd')) {
+        return [false, 'contains dairy / milk'];
+      }
+    }
+    // Peanut
+    if (allergy === 'peanut' || allergy === 'peanuts') {
+      if (allergens.includes('peanut') || allergens.includes('peanuts') || name.includes('peanut') || desc.includes('peanut')) {
+        return [false, 'contains peanuts'];
+      }
+    }
+    // Tree nuts
+    if (allergy === 'tree_nut' || allergy === 'tree_nuts' || allergy === 'nuts') {
+      if (allergens.some((a) => a.includes('nut')) || name.includes('nut') || desc.includes('nut') || name.includes('almond') || name.includes('walnut')) {
+        return [false, 'contains tree nuts'];
+      }
+    }
+    // Egg
+    if (allergy === 'egg' || allergy === 'eggs') {
+      if (allergens.includes('egg') || allergens.includes('eggs') || name.includes('egg') || desc.includes('egg') || name.includes('omelette')) {
+        return [false, 'contains egg'];
+      }
+    }
+    // Gluten / Wheat
+    if (allergy === 'gluten' || allergy === 'wheat') {
+      if (allergens.includes('gluten') || allergens.includes('wheat') || name.includes('wheat') || name.includes('roti') || name.includes('thepla') || name.includes('oats') || desc.includes('gluten')) {
+        return [false, 'contains gluten / wheat'];
+      }
+    }
+    // Soy
+    if (allergy === 'soy' || allergy === 'soya' || allergy === 'soybeans') {
+      if (allergens.includes('soy') || allergens.includes('soya') || name.includes('soy') || name.includes('tofu') || desc.includes('soy')) {
+        return [false, 'contains soy'];
+      }
+    }
+    // Fish
+    if (allergy === 'fish') {
+      if (allergens.includes('fish') || name.includes('fish') || desc.includes('fish')) {
+        return [false, 'contains fish'];
+      }
+    }
+    // Shellfish
+    if (allergy === 'shellfish') {
+      if (allergens.includes('shellfish') || allergens.includes('prawn') || name.includes('prawn') || name.includes('shrimp') || desc.includes('prawn')) {
+        return [false, 'contains shellfish'];
+      }
+    }
+  }
 
   for (const disliked of constraints.disliked || []) {
-    if (disliked && name.includes(disliked.replace(/_/g, ' '))) {
+    if (disliked && name.includes(disliked.replace(/_/g, ' ').toLowerCase())) {
       return [false, 'on your dislikes list'];
     }
   }

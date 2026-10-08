@@ -64,20 +64,20 @@ async function predictCategory(features, { enabled = env.mlEnabled } = {}) {
 async function getModelMetadata() {
   try {
     const { ok, data } = await fetchJson('/model/metadata');
-    if (!ok || !data) return {};
+    if (!ok || !data) return null;
     return data;
   } catch {
-    return {};
+    return null;
   }
 }
 
 async function getModelExplanation() {
   try {
     const { ok, data } = await fetchJson('/model/explanation');
-    if (!ok || !data) return {};
+    if (!ok || !data) return null;
     return data;
   } catch {
-    return {};
+    return null;
   }
 }
 
