@@ -16,6 +16,14 @@ function errorHandler(err, _req, res, _next) {
     });
   }
 
+  if (err.name === 'CastError') {
+    return res.status(400).json({
+      success: false,
+      message: `Invalid identifier format: ${err.path || 'id'}.`,
+      error: 'INVALID_ID',
+    });
+  }
+
   console.error('Unhandled application error:', err && err.message);
   if (env.nodeEnv !== 'production' && env.nodeEnv !== 'test') {
     console.error(err);

@@ -5,6 +5,10 @@ const request = require('supertest');
 const { createApp } = require('../src/app');
 const { seedActivities, seedFoods } = require('../src/seed/seed');
 const { env } = require('../src/config/env');
+// Unit/integration tests must never spend credentials or transmit profiles.
+env.openaiApiKey = '';
+env.geminiApiKey = '';
+env.llamaApiUrl = '';
 const { setPredictOverride } = require('../src/services/mlService');
 
 global.VALID_PROFILE = {

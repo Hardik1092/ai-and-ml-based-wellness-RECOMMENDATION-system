@@ -1,0 +1,633 @@
+{
+  "files": {
+    "..\\CEP_Synthetic_Data_20000\\cep_ml_features_20000.csv": {
+      "sha256": "d9ec6d81cae945010ff4d3e3824f287d48ac062f46e79894df95a01df3f1a8ff",
+      "shape": [
+        20000,
+        15
+      ],
+      "dtypes": {
+        "bmi": "float64",
+        "age": "int64",
+        "activity_score": "int64",
+        "sleep_hours": "float64",
+        "sleep_adequacy": "int64",
+        "hydration_ratio": "float64",
+        "hydration_adequacy": "int64",
+        "exercise_minutes": "float64",
+        "exercise_adequacy": "int64",
+        "steps_ratio": "float64",
+        "calorie_ratio": "float64",
+        "stress_level": "int64",
+        "goal_code": "int64",
+        "gender_code": "int64",
+        "wellness_category": "object"
+      },
+      "missing_by_column": {
+        "bmi": 0,
+        "age": 0,
+        "activity_score": 0,
+        "sleep_hours": 0,
+        "sleep_adequacy": 0,
+        "hydration_ratio": 0,
+        "hydration_adequacy": 0,
+        "exercise_minutes": 0,
+        "exercise_adequacy": 0,
+        "steps_ratio": 0,
+        "calorie_ratio": 0,
+        "stress_level": 0,
+        "goal_code": 0,
+        "gender_code": 0,
+        "wellness_category": 0
+      },
+      "duplicate_rows": 0,
+      "classes": {
+        "weight_management": 6686,
+        "sleep_focus": 5200,
+        "hydration_focus": 3326,
+        "balanced_wellness": 2183,
+        "fitness_improvement": 1755,
+        "activity_focus": 850
+      },
+      "ranges": {
+        "bmi": {
+          "min": 10.59,
+          "max": 55.1
+        },
+        "age": {
+          "min": 16.0,
+          "max": 69.0
+        },
+        "activity_score": {
+          "min": 1.0,
+          "max": 4.0
+        },
+        "sleep_hours": {
+          "min": 3.0,
+          "max": 10.0
+        },
+        "sleep_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "hydration_ratio": {
+          "min": 0.067,
+          "max": 2.247
+        },
+        "hydration_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "exercise_minutes": {
+          "min": 0.0,
+          "max": 150.0
+        },
+        "exercise_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "steps_ratio": {
+          "min": 0.037,
+          "max": 2.473
+        },
+        "calorie_ratio": {
+          "min": 0.407,
+          "max": 1.86
+        },
+        "stress_level": {
+          "min": 1.0,
+          "max": 5.0
+        },
+        "goal_code": {
+          "min": 0.0,
+          "max": 6.0
+        },
+        "gender_code": {
+          "min": 0.0,
+          "max": 2.0
+        }
+      }
+    },
+    "..\\CEP_Synthetic_Data_20000\\cep_ml_llm_benchmark_cases_200.csv": {
+      "sha256": "43f02e05885381a736c4905322c5a2816c9fcf2c2e7e0ccb1da1dbd8fa41661a",
+      "shape": [
+        200,
+        15
+      ],
+      "dtypes": {
+        "bmi": "float64",
+        "age": "int64",
+        "gender": "object",
+        "weight_kg": "float64",
+        "activity_level": "object",
+        "goal": "object",
+        "sleep_hours": "float64",
+        "water_ml": "int64",
+        "water_target_ml": "int64",
+        "exercise_minutes": "int64",
+        "steps": "int64",
+        "calories": "int64",
+        "calorie_target": "int64",
+        "stress_level": "int64",
+        "wellness_category": "object"
+      },
+      "missing_by_column": {
+        "bmi": 0,
+        "age": 0,
+        "gender": 0,
+        "weight_kg": 0,
+        "activity_level": 0,
+        "goal": 0,
+        "sleep_hours": 0,
+        "water_ml": 0,
+        "water_target_ml": 0,
+        "exercise_minutes": 0,
+        "steps": 0,
+        "calories": 0,
+        "calorie_target": 0,
+        "stress_level": 0,
+        "wellness_category": 0
+      },
+      "duplicate_rows": 0,
+      "classes": {
+        "weight_management": 64,
+        "sleep_focus": 56,
+        "hydration_focus": 32,
+        "balanced_wellness": 20,
+        "fitness_improvement": 19,
+        "activity_focus": 9
+      },
+      "ranges": {
+        "bmi": {
+          "min": 10.87,
+          "max": 46.03
+        },
+        "age": {
+          "min": 16.0,
+          "max": 69.0
+        },
+        "weight_kg": {
+          "min": 38.0,
+          "max": 112.5
+        },
+        "sleep_hours": {
+          "min": 3.0,
+          "max": 10.0
+        },
+        "water_ml": {
+          "min": 200.0,
+          "max": 4578.0
+        },
+        "water_target_ml": {
+          "min": 1330.0,
+          "max": 4686.0
+        },
+        "exercise_minutes": {
+          "min": 0.0,
+          "max": 128.0
+        },
+        "steps": {
+          "min": 300.0,
+          "max": 14690.0
+        },
+        "calories": {
+          "min": 900.0,
+          "max": 3708.0
+        },
+        "calorie_target": {
+          "min": 1300.0,
+          "max": 3032.0
+        },
+        "stress_level": {
+          "min": 1.0,
+          "max": 5.0
+        }
+      }
+    },
+    "..\\CEP_Synthetic_Data_20000\\cep_synthetic_wellness_20000.csv": {
+      "sha256": "835d065a40b44986b273b363e77159595395a45da01b13c7c88c7ca537ade019",
+      "shape": [
+        20000,
+        15
+      ],
+      "dtypes": {
+        "bmi": "float64",
+        "age": "int64",
+        "gender": "object",
+        "weight_kg": "float64",
+        "activity_level": "object",
+        "goal": "object",
+        "sleep_hours": "float64",
+        "water_ml": "int64",
+        "water_target_ml": "int64",
+        "exercise_minutes": "int64",
+        "steps": "int64",
+        "calories": "int64",
+        "calorie_target": "int64",
+        "stress_level": "int64",
+        "wellness_category": "object"
+      },
+      "missing_by_column": {
+        "bmi": 0,
+        "age": 0,
+        "gender": 0,
+        "weight_kg": 0,
+        "activity_level": 0,
+        "goal": 0,
+        "sleep_hours": 0,
+        "water_ml": 0,
+        "water_target_ml": 0,
+        "exercise_minutes": 0,
+        "steps": 0,
+        "calories": 0,
+        "calorie_target": 0,
+        "stress_level": 0,
+        "wellness_category": 0
+      },
+      "duplicate_rows": 0,
+      "classes": {
+        "weight_management": 6686,
+        "sleep_focus": 5200,
+        "hydration_focus": 3326,
+        "balanced_wellness": 2183,
+        "fitness_improvement": 1755,
+        "activity_focus": 850
+      },
+      "ranges": {
+        "bmi": {
+          "min": 10.59,
+          "max": 55.1
+        },
+        "age": {
+          "min": 16.0,
+          "max": 69.0
+        },
+        "weight_kg": {
+          "min": 38.0,
+          "max": 124.8
+        },
+        "sleep_hours": {
+          "min": 3.0,
+          "max": 10.0
+        },
+        "water_ml": {
+          "min": 200.0,
+          "max": 5000.0
+        },
+        "water_target_ml": {
+          "min": 1330.0,
+          "max": 4857.0
+        },
+        "exercise_minutes": {
+          "min": 0.0,
+          "max": 150.0
+        },
+        "steps": {
+          "min": 300.0,
+          "max": 19783.0
+        },
+        "calories": {
+          "min": 900.0,
+          "max": 4000.0
+        },
+        "calorie_target": {
+          "min": 1300.0,
+          "max": 3200.0
+        },
+        "stress_level": {
+          "min": 1.0,
+          "max": 5.0
+        }
+      }
+    },
+    "data\\cep_ml_features_20000.csv": {
+      "sha256": "d9ec6d81cae945010ff4d3e3824f287d48ac062f46e79894df95a01df3f1a8ff",
+      "shape": [
+        20000,
+        15
+      ],
+      "dtypes": {
+        "bmi": "float64",
+        "age": "int64",
+        "activity_score": "int64",
+        "sleep_hours": "float64",
+        "sleep_adequacy": "int64",
+        "hydration_ratio": "float64",
+        "hydration_adequacy": "int64",
+        "exercise_minutes": "float64",
+        "exercise_adequacy": "int64",
+        "steps_ratio": "float64",
+        "calorie_ratio": "float64",
+        "stress_level": "int64",
+        "goal_code": "int64",
+        "gender_code": "int64",
+        "wellness_category": "object"
+      },
+      "missing_by_column": {
+        "bmi": 0,
+        "age": 0,
+        "activity_score": 0,
+        "sleep_hours": 0,
+        "sleep_adequacy": 0,
+        "hydration_ratio": 0,
+        "hydration_adequacy": 0,
+        "exercise_minutes": 0,
+        "exercise_adequacy": 0,
+        "steps_ratio": 0,
+        "calorie_ratio": 0,
+        "stress_level": 0,
+        "goal_code": 0,
+        "gender_code": 0,
+        "wellness_category": 0
+      },
+      "duplicate_rows": 0,
+      "classes": {
+        "weight_management": 6686,
+        "sleep_focus": 5200,
+        "hydration_focus": 3326,
+        "balanced_wellness": 2183,
+        "fitness_improvement": 1755,
+        "activity_focus": 850
+      },
+      "ranges": {
+        "bmi": {
+          "min": 10.59,
+          "max": 55.1
+        },
+        "age": {
+          "min": 16.0,
+          "max": 69.0
+        },
+        "activity_score": {
+          "min": 1.0,
+          "max": 4.0
+        },
+        "sleep_hours": {
+          "min": 3.0,
+          "max": 10.0
+        },
+        "sleep_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "hydration_ratio": {
+          "min": 0.067,
+          "max": 2.247
+        },
+        "hydration_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "exercise_minutes": {
+          "min": 0.0,
+          "max": 150.0
+        },
+        "exercise_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "steps_ratio": {
+          "min": 0.037,
+          "max": 2.473
+        },
+        "calorie_ratio": {
+          "min": 0.407,
+          "max": 1.86
+        },
+        "stress_level": {
+          "min": 1.0,
+          "max": 5.0
+        },
+        "goal_code": {
+          "min": 0.0,
+          "max": 6.0
+        },
+        "gender_code": {
+          "min": 0.0,
+          "max": 2.0
+        }
+      }
+    },
+    "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\data\\sample_training_data.csv": {
+      "sha256": "80cc0ea108a922b2e0417f6be7dcfc2a88c74862ac035f951206fbb5c33882fd",
+      "shape": [
+        200,
+        15
+      ],
+      "dtypes": {
+        "bmi": "float64",
+        "age": "int64",
+        "activity_score": "int64",
+        "sleep_hours": "float64",
+        "sleep_adequacy": "int64",
+        "hydration_ratio": "float64",
+        "hydration_adequacy": "int64",
+        "exercise_minutes": "float64",
+        "exercise_adequacy": "int64",
+        "steps_ratio": "float64",
+        "calorie_ratio": "float64",
+        "stress_level": "int64",
+        "goal_code": "int64",
+        "gender_code": "int64",
+        "wellness_category": "object"
+      },
+      "missing_by_column": {
+        "bmi": 0,
+        "age": 0,
+        "activity_score": 0,
+        "sleep_hours": 0,
+        "sleep_adequacy": 0,
+        "hydration_ratio": 0,
+        "hydration_adequacy": 0,
+        "exercise_minutes": 0,
+        "exercise_adequacy": 0,
+        "steps_ratio": 0,
+        "calorie_ratio": 0,
+        "stress_level": 0,
+        "goal_code": 0,
+        "gender_code": 0,
+        "wellness_category": 0
+      },
+      "duplicate_rows": 0,
+      "classes": {
+        "weight_management": 66,
+        "hydration_focus": 40,
+        "sleep_focus": 40,
+        "balanced_wellness": 27,
+        "fitness_improvement": 19,
+        "activity_focus": 8
+      },
+      "ranges": {
+        "bmi": {
+          "min": 12.73,
+          "max": 48.91
+        },
+        "age": {
+          "min": 16.0,
+          "max": 68.0
+        },
+        "activity_score": {
+          "min": 1.0,
+          "max": 4.0
+        },
+        "sleep_hours": {
+          "min": 3.0,
+          "max": 9.59
+        },
+        "sleep_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "hydration_ratio": {
+          "min": 0.101,
+          "max": 1.802
+        },
+        "hydration_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "exercise_minutes": {
+          "min": 1.0,
+          "max": 92.0
+        },
+        "exercise_adequacy": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "steps_ratio": {
+          "min": 0.037,
+          "max": 1.941
+        },
+        "calorie_ratio": {
+          "min": 0.498,
+          "max": 1.435
+        },
+        "stress_level": {
+          "min": 1.0,
+          "max": 5.0
+        },
+        "goal_code": {
+          "min": 0.0,
+          "max": 6.0
+        },
+        "gender_code": {
+          "min": 0.0,
+          "max": 2.0
+        }
+      }
+    }
+  },
+  "near_duplicate_tolerances": {
+    "bmi": 0.1,
+    "age": 0.5,
+    "activity_score": 0.1,
+    "sleep_hours": 0.1,
+    "sleep_adequacy": 0.1,
+    "hydration_ratio": 0.01,
+    "hydration_adequacy": 0.1,
+    "exercise_minutes": 1,
+    "exercise_adequacy": 0.1,
+    "steps_ratio": 0.01,
+    "calorie_ratio": 0.01,
+    "stress_level": 0.1,
+    "goal_code": 0.1,
+    "gender_code": 0.1
+  },
+  "feature_mismatch_cells": 0,
+  "raw_feature_label_mismatches": 0,
+  "generator_seed42_features_match": true,
+  "generator_seed42_labels_match": true,
+  "benchmark_seed2026_reproduced": true,
+  "rule_disagreements": 1155,
+  "benchmark_rule_disagreements": 13,
+  "benchmark_overlap": {
+    "exact": 0,
+    "near_including_exact": 0,
+    "minimum_scaled_distance": 10.0
+  },
+  "copy_matches_package": true,
+  "synthetic_extremes": {
+    "age_under18": 746,
+    "bmi_under16": 1203,
+    "bmi_over40": 385
+  },
+  "raw_category_counts": {
+    "gender": {
+      "male": 9304,
+      "female": 9102,
+      "other": 1594
+    },
+    "goal": {
+      "weight_gain": 2949,
+      "improve_fitness": 2885,
+      "maintain_weight": 2884,
+      "muscle_building": 2840,
+      "improve_sleep": 2824,
+      "general_wellness": 2809,
+      "weight_loss": 2809
+    },
+    "activity_level": {
+      "light": 6456,
+      "sedentary": 5868,
+      "moderate": 5288,
+      "active": 2388
+    }
+  },
+  "split_counts": {
+    "train": {
+      "rows": 12000,
+      "classes": {
+        "weight_management": 4012,
+        "sleep_focus": 3120,
+        "hydration_focus": 1996,
+        "balanced_wellness": 1309,
+        "fitness_improvement": 1053,
+        "activity_focus": 510
+      }
+    },
+    "validation": {
+      "rows": 4000,
+      "classes": {
+        "weight_management": 1337,
+        "sleep_focus": 1040,
+        "hydration_focus": 665,
+        "balanced_wellness": 437,
+        "fitness_improvement": 351,
+        "activity_focus": 170
+      }
+    },
+    "test": {
+      "rows": 4000,
+      "classes": {
+        "weight_management": 1337,
+        "sleep_focus": 1040,
+        "hydration_focus": 665,
+        "balanced_wellness": 437,
+        "fitness_improvement": 351,
+        "activity_focus": 170
+      }
+    }
+  },
+  "split_overlap": {
+    "train_vs_validation": {
+      "exact": 0,
+      "near_including_exact": 0,
+      "minimum_scaled_distance": 9.0
+    },
+    "train_vs_test": {
+      "exact": 0,
+      "near_including_exact": 0,
+      "minimum_scaled_distance": 5.0
+    },
+    "validation_vs_test": {
+      "exact": 0,
+      "near_including_exact": 0,
+      "minimum_scaled_distance": 9.799999999999997
+    }
+  },
+  "legacy_generator_overlap_with_20k": {
+    "exact": 3000,
+    "near_including_exact": 3000,
+    "minimum_scaled_distance": 0.0
+  }
+}

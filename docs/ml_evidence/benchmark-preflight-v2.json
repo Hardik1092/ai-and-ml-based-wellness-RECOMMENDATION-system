@@ -1,0 +1,39 @@
+{
+  "model_path": "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\models\\cep-20k-v1\\model.pkl",
+  "model_sha256": "4d131cc7cbd2b8350cc1338adf8cc2f6447a6f3b889feb18b8e4fe7b0ef7729e",
+  "metadata_sha256": "b3cf51c56b97c17fd23b4a55cba18d1c89851c66b0953d9b219406d33112d51c",
+  "dataset_sha256": "d9ec6d81cae945010ff4d3e3824f287d48ac062f46e79894df95a01df3f1a8ff",
+  "splits_sha256": "9de529660995b2559658c57abf0da4a712570aede35ef5d311adb8bc419a5316",
+  "benchmark_sha256": "43f02e05885381a736c4905322c5a2816c9fcf2c2e7e0ccb1da1dbd8fa41661a",
+  "benchmark_shape": [
+    200,
+    15
+  ],
+  "benchmark_missing_cells": 0,
+  "split_counts": {
+    "train": 12000,
+    "validation": 4000,
+    "test": 4000
+  },
+  "benchmark_overlap_by_split": {
+    "train": {
+      "exact": 0,
+      "near_including_exact": 0,
+      "minimum_scaled_distance": 10.0
+    },
+    "validation": {
+      "exact": 0,
+      "near_including_exact": 0,
+      "minimum_scaled_distance": 10.0
+    },
+    "test": {
+      "exact": 0,
+      "near_including_exact": 0,
+      "minimum_scaled_distance": 10.0
+    }
+  },
+  "selection_reproduced_from_validation_macro_f1": "hist_gradient_boosting",
+  "methodology": "Benchmark features were read only for leakage checks before training; no benchmark fitting or scoring occurs in model selection. Confirmed by recorded splits, experiment and training source inspection.",
+  "benchmark_used_for_tuning": false,
+  "preflight_passed": true
+}

@@ -1,0 +1,271 @@
+{
+  "metadata": {
+    "model_type": "RandomForestClassifier",
+    "model_params": {
+      "n_estimators": 200,
+      "max_depth": 12,
+      "min_samples_leaf": 3,
+      "class_weight": "balanced",
+      "random_state": 42
+    },
+    "trained_at": "2026-10-16T09:00:29.945722",
+    "n_samples": 3000,
+    "n_train": 2400,
+    "n_test": 600,
+    "data_source": "synthetic demo dataset (ai-ml/app/training/dataset.py) - not real medical data",
+    "features": [
+      "bmi",
+      "age",
+      "activity_score",
+      "sleep_hours",
+      "sleep_adequacy",
+      "hydration_ratio",
+      "hydration_adequacy",
+      "exercise_minutes",
+      "exercise_adequacy",
+      "steps_ratio",
+      "calorie_ratio",
+      "stress_level",
+      "goal_code",
+      "gender_code"
+    ],
+    "feature_descriptions": {
+      "bmi": "Body Mass Index computed from height and weight",
+      "age": "Age in years",
+      "activity_score": "Self-reported activity level mapped to 1 (sedentary) - 4 (active)",
+      "sleep_hours": "Average logged sleep hours per night",
+      "sleep_adequacy": "1 if average sleep meets the 7 h guideline, else 0",
+      "hydration_ratio": "Average logged water intake divided by the personal water target",
+      "hydration_adequacy": "1 if hydration ratio is at least 0.9, else 0",
+      "exercise_minutes": "Average logged exercise minutes per day",
+      "exercise_adequacy": "1 if average exercise meets the 30 min/day target, else 0",
+      "steps_ratio": "Average logged steps divided by the 8000 step target",
+      "calorie_ratio": "Average logged calorie intake divided by the personal calorie target",
+      "stress_level": "Self-reported stress on a 1-5 scale",
+      "goal_code": "Wellness goal encoded as an integer index",
+      "gender_code": "Gender encoded as an integer index"
+    },
+    "feature_importances": {
+      "bmi": 0.1535,
+      "age": 0.0364,
+      "activity_score": 0.0131,
+      "sleep_hours": 0.2192,
+      "sleep_adequacy": 0.022,
+      "hydration_ratio": 0.207,
+      "hydration_adequacy": 0.0148,
+      "exercise_minutes": 0.0984,
+      "exercise_adequacy": 0.0099,
+      "steps_ratio": 0.0917,
+      "calorie_ratio": 0.0365,
+      "stress_level": 0.0179,
+      "goal_code": 0.0705,
+      "gender_code": 0.009
+    },
+    "classes": [
+      "activity_focus",
+      "balanced_wellness",
+      "fitness_improvement",
+      "hydration_focus",
+      "sleep_focus",
+      "weight_management"
+    ],
+    "metrics": {
+      "accuracy": 0.9017,
+      "precision": 0.9,
+      "recall": 0.9017,
+      "f1": 0.8984
+    },
+    "confusion_matrix": [
+      [
+        13,
+        0,
+        0,
+        1,
+        5,
+        6
+      ],
+      [
+        0,
+        51,
+        4,
+        1,
+        4,
+        5
+      ],
+      [
+        3,
+        2,
+        46,
+        2,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        2,
+        87,
+        3,
+        5
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        150,
+        2
+      ],
+      [
+        0,
+        2,
+        2,
+        3,
+        1,
+        194
+      ]
+    ],
+    "confusion_labels": [
+      "activity_focus",
+      "balanced_wellness",
+      "fitness_improvement",
+      "hydration_focus",
+      "sleep_focus",
+      "weight_management"
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.9017,
+    "precision": 0.9,
+    "recall": 0.9017,
+    "f1": 0.8984,
+    "labels": [
+      "activity_focus",
+      "balanced_wellness",
+      "fitness_improvement",
+      "hydration_focus",
+      "sleep_focus",
+      "weight_management"
+    ],
+    "confusion_matrix": [
+      [
+        13,
+        0,
+        0,
+        1,
+        5,
+        6
+      ],
+      [
+        0,
+        51,
+        4,
+        1,
+        4,
+        5
+      ],
+      [
+        3,
+        2,
+        46,
+        2,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        2,
+        87,
+        3,
+        5
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        150,
+        2
+      ],
+      [
+        0,
+        2,
+        2,
+        3,
+        1,
+        194
+      ]
+    ],
+    "report": {
+      "activity_focus": {
+        "precision": 0.8125,
+        "recall": 0.52,
+        "f1-score": 0.6341463414634146,
+        "support": 25.0
+      },
+      "balanced_wellness": {
+        "precision": 0.8947368421052632,
+        "recall": 0.7846153846153846,
+        "f1-score": 0.8360655737704918,
+        "support": 65.0
+      },
+      "fitness_improvement": {
+        "precision": 0.8363636363636363,
+        "recall": 0.8214285714285714,
+        "f1-score": 0.8288288288288288,
+        "support": 56.0
+      },
+      "hydration_focus": {
+        "precision": 0.925531914893617,
+        "recall": 0.8787878787878788,
+        "f1-score": 0.9015544041450777,
+        "support": 99.0
+      },
+      "sleep_focus": {
+        "precision": 0.9146341463414634,
+        "recall": 0.9803921568627451,
+        "f1-score": 0.9463722397476341,
+        "support": 153.0
+      },
+      "weight_management": {
+        "precision": 0.9065420560747663,
+        "recall": 0.9603960396039604,
+        "f1-score": 0.9326923076923077,
+        "support": 202.0
+      },
+      "accuracy": 0.9016666666666666,
+      "macro avg": {
+        "precision": 0.8817180992964578,
+        "recall": 0.8242700052164235,
+        "f1-score": 0.8466099492746259,
+        "support": 600.0
+      },
+      "weighted avg": {
+        "precision": 0.8999915627750342,
+        "recall": 0.9016666666666666,
+        "f1-score": 0.8984417001527978,
+        "support": 600.0
+      }
+    }
+  },
+  "training_seconds": 0.7669270999904256,
+  "command": "original app.training.train.train(3000), no save",
+  "versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.0",
+    "joblib": "1.4.2",
+    "fastapi": "0.115.6",
+    "pydantic": "2.13.5"
+  },
+  "original_artifact_latency": {
+    "single_prediction_ms_p50": 5.5806499876780435,
+    "single_prediction_ms_p95": 8.262714979355223,
+    "samples": 100,
+    "warmup": 1,
+    "profile_seed": 900,
+    "includes_http": false,
+    "model_sha256": "9c5d7598ba2b33ad1155d1780b6021dd923f8fcc34bfe250236246ce3453c29c"
+  }
+}

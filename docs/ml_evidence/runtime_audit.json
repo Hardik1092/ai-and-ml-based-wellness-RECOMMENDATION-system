@@ -1,0 +1,1759 @@
+{
+  "timestamp_utc": "2026-10-16T13:42:39.265663+00:00",
+  "scope": "Isolated in-process FastAPI TestClient, not an already running server",
+  "backend": {
+    "port": 5000,
+    "mlServiceUrl": "http://127.0.0.1:8000",
+    "mlEnabled": true,
+    "mlTimeoutMs": 4000
+  },
+  "ml_enabled": true,
+  "features": [
+    "bmi",
+    "age",
+    "activity_score",
+    "sleep_hours",
+    "sleep_adequacy",
+    "hydration_ratio",
+    "hydration_adequacy",
+    "exercise_minutes",
+    "exercise_adequacy",
+    "steps_ratio",
+    "calorie_ratio",
+    "stress_level",
+    "goal_code",
+    "gender_code"
+  ],
+  "live_requests": [
+    {
+      "url": "http://127.0.0.1:8000/health",
+      "error_type": "ConnectError",
+      "error": "[WinError 10061] No connection could be made because the target machine actively refused it"
+    },
+    {
+      "url": "http://127.0.0.1:8000/model/metadata",
+      "error_type": "ConnectError",
+      "error": "[WinError 10061] No connection could be made because the target machine actively refused it"
+    },
+    {
+      "url": "http://127.0.0.1:5000/api/health",
+      "error_type": "ConnectError",
+      "error": "[WinError 10061] No connection could be made because the target machine actively refused it"
+    },
+    {
+      "url": "http://127.0.0.1:5173/",
+      "error_type": "ConnectError",
+      "error": "[WinError 10061] No connection could be made because the target machine actively refused it"
+    }
+  ],
+  "artifacts": {
+    "configured_runtime": {
+      "path": "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\models\\model.pkl",
+      "sha256": "9c5d7598ba2b33ad1155d1780b6021dd923f8fcc34bfe250236246ce3453c29c",
+      "type": "RandomForestClassifier",
+      "features": [
+        "bmi",
+        "age",
+        "activity_score",
+        "sleep_hours",
+        "sleep_adequacy",
+        "hydration_ratio",
+        "hydration_adequacy",
+        "exercise_minutes",
+        "exercise_adequacy",
+        "steps_ratio",
+        "calorie_ratio",
+        "stress_level",
+        "goal_code",
+        "gender_code"
+      ],
+      "classes": [
+        "activity_focus",
+        "balanced_wellness",
+        "fitness_improvement",
+        "hydration_focus",
+        "sleep_focus",
+        "weight_management"
+      ],
+      "feature_order_matches": true
+    },
+    "latest_training": {
+      "path": "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\models\\cep-20k-v1\\model.pkl",
+      "sha256": "4d131cc7cbd2b8350cc1338adf8cc2f6447a6f3b889feb18b8e4fe7b0ef7729e",
+      "type": "HistGradientBoostingClassifier",
+      "features": [
+        "bmi",
+        "age",
+        "activity_score",
+        "sleep_hours",
+        "sleep_adequacy",
+        "hydration_ratio",
+        "hydration_adequacy",
+        "exercise_minutes",
+        "exercise_adequacy",
+        "steps_ratio",
+        "calorie_ratio",
+        "stress_level",
+        "goal_code",
+        "gender_code"
+      ],
+      "classes": [
+        "activity_focus",
+        "balanced_wellness",
+        "fitness_improvement",
+        "hydration_focus",
+        "sleep_focus",
+        "weight_management"
+      ],
+      "feature_order_matches": true
+    }
+  },
+  "runtime_metadata": {
+    "path": "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\models\\feature_metadata.json",
+    "sha256": "64242bf55d2aad41e99f8639d60eee24dfa2b03c91e0f7f398af5cb126e60e95",
+    "declared_type": "RandomForestClassifier",
+    "has_model_checksum": false
+  },
+  "same_path": false,
+  "same_hash": false,
+  "legacy_fallback_sha256": "9c5d7598ba2b33ad1155d1780b6021dd923f8fcc34bfe250236246ce3453c29c",
+  "rows": [
+    {
+      "id": "baseline",
+      "comparison_parent": "baseline",
+      "changed_profile": {},
+      "changed_summary": {},
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "balanced_wellness",
+        "categoryLabel": "Balanced Wellness",
+        "category_label": "Balanced Wellness",
+        "confidence": 0.7885,
+        "probabilities": {
+          "activity_focus": 0.001,
+          "balanced_wellness": 0.7885,
+          "fitness_improvement": 0.0881,
+          "hydration_focus": 0.0071,
+          "sleep_focus": 0.0113,
+          "weight_management": 0.1041
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'balanced wellness'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 22.962999995797873,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "balanced_wellness",
+        "probabilities": {
+          "activity_focus": 0.0032,
+          "balanced_wellness": 0.9791,
+          "fitness_improvement": 0.0043,
+          "hydration_focus": 0.0039,
+          "sleep_focus": 0.0034,
+          "weight_management": 0.0061
+        }
+      }
+    },
+    {
+      "id": "sleep_5h",
+      "comparison_parent": "baseline",
+      "changed_profile": {},
+      "changed_summary": {
+        "avg_sleep": 5
+      },
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 5,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 5,
+        "sleep_adequacy": 0,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "sleep_focus",
+        "categoryLabel": "Sleep Focus",
+        "category_label": "Sleep Focus",
+        "confidence": 0.914,
+        "probabilities": {
+          "activity_focus": 0.0034,
+          "balanced_wellness": 0.032,
+          "fitness_improvement": 0.0373,
+          "hydration_focus": 0.0006,
+          "sleep_focus": 0.914,
+          "weight_management": 0.0127
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'sleep focus'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 26.06420000665821,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "sleep_focus",
+        "probabilities": {
+          "activity_focus": 0.0044,
+          "balanced_wellness": 0.0155,
+          "fitness_improvement": 0.0018,
+          "hydration_focus": 0.0059,
+          "sleep_focus": 0.97,
+          "weight_management": 0.0025
+        }
+      }
+    },
+    {
+      "id": "sleep_7h",
+      "comparison_parent": "baseline",
+      "changed_profile": {},
+      "changed_summary": {
+        "avg_sleep": 7
+      },
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 7,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 7,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "balanced_wellness",
+        "categoryLabel": "Balanced Wellness",
+        "category_label": "Balanced Wellness",
+        "confidence": 0.8082,
+        "probabilities": {
+          "activity_focus": 0.0084,
+          "balanced_wellness": 0.8082,
+          "fitness_improvement": 0.0799,
+          "hydration_focus": 0.0061,
+          "sleep_focus": 0.0143,
+          "weight_management": 0.0832
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'balanced wellness'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 25.975800002925098,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "balanced_wellness",
+        "probabilities": {
+          "activity_focus": 0.0035,
+          "balanced_wellness": 0.9718,
+          "fitness_improvement": 0.0049,
+          "hydration_focus": 0.0085,
+          "sleep_focus": 0.0062,
+          "weight_management": 0.0051
+        }
+      }
+    },
+    {
+      "id": "water_800ml",
+      "comparison_parent": "baseline",
+      "changed_profile": {},
+      "changed_summary": {
+        "avg_water": 800
+      },
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 800,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 0.271,
+        "hydration_adequacy": 0,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "hydration_focus",
+        "categoryLabel": "Hydration Focus",
+        "category_label": "Hydration Focus",
+        "confidence": 0.9086,
+        "probabilities": {
+          "activity_focus": 0.0029,
+          "balanced_wellness": 0.056,
+          "fitness_improvement": 0.0079,
+          "hydration_focus": 0.9086,
+          "sleep_focus": 0.0156,
+          "weight_management": 0.009
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'hydration focus'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 24.58140000817366,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "hydration_focus",
+        "probabilities": {
+          "activity_focus": 0.0008,
+          "balanced_wellness": 0.027,
+          "fitness_improvement": 0.0019,
+          "hydration_focus": 0.9676,
+          "sleep_focus": 0.002,
+          "weight_management": 0.0007
+        }
+      }
+    },
+    {
+      "id": "exercise_0min",
+      "comparison_parent": "baseline",
+      "changed_profile": {},
+      "changed_summary": {
+        "avg_exercise_minutes": 0
+      },
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 0,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 0,
+        "exercise_adequacy": 0,
+        "steps_ratio": 1,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "balanced_wellness",
+        "categoryLabel": "Balanced Wellness",
+        "category_label": "Balanced Wellness",
+        "confidence": 0.4803,
+        "probabilities": {
+          "activity_focus": 0.0737,
+          "balanced_wellness": 0.4803,
+          "fitness_improvement": 0.2149,
+          "hydration_focus": 0.0374,
+          "sleep_focus": 0.0344,
+          "weight_management": 0.1592
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'balanced wellness'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 31.40720000374131,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "balanced_wellness",
+        "probabilities": {
+          "activity_focus": 0.0155,
+          "balanced_wellness": 0.9613,
+          "fitness_improvement": 0.0056,
+          "hydration_focus": 0.0014,
+          "sleep_focus": 0.0115,
+          "weight_management": 0.0048
+        }
+      }
+    },
+    {
+      "id": "steps_1000",
+      "comparison_parent": "baseline",
+      "changed_profile": {},
+      "changed_summary": {
+        "avg_steps": 1000
+      },
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 1000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 0.125,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "balanced_wellness",
+        "categoryLabel": "Balanced Wellness",
+        "category_label": "Balanced Wellness",
+        "confidence": 0.7364,
+        "probabilities": {
+          "activity_focus": 0.021,
+          "balanced_wellness": 0.7364,
+          "fitness_improvement": 0.0699,
+          "hydration_focus": 0.0083,
+          "sleep_focus": 0.0246,
+          "weight_management": 0.1397
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'balanced wellness'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 27.325899980496615,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "balanced_wellness",
+        "probabilities": {
+          "activity_focus": 0.0036,
+          "balanced_wellness": 0.9807,
+          "fitness_improvement": 0.0055,
+          "hydration_focus": 0.0026,
+          "sleep_focus": 0.003,
+          "weight_management": 0.0046
+        }
+      }
+    },
+    {
+      "id": "goal_fitness",
+      "comparison_parent": "baseline",
+      "changed_profile": {
+        "goal": "improve_fitness"
+      },
+      "changed_summary": {},
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "improve_fitness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 98,
+        "proteinG": 98,
+        "carbs_g": 368,
+        "carbsG": 368,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "improve_fitness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 4,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "fitness_improvement",
+        "categoryLabel": "Fitness Improvement",
+        "category_label": "Fitness Improvement",
+        "confidence": 0.5067,
+        "probabilities": {
+          "activity_focus": 0.0064,
+          "balanced_wellness": 0.3731,
+          "fitness_improvement": 0.5067,
+          "hydration_focus": 0.0076,
+          "sleep_focus": 0.0074,
+          "weight_management": 0.0989
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'fitness improvement'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 24.34289999655448,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "fitness_improvement",
+        "probabilities": {
+          "activity_focus": 0.0142,
+          "balanced_wellness": 0.0454,
+          "fitness_improvement": 0.9145,
+          "hydration_focus": 0.0083,
+          "sleep_focus": 0.0067,
+          "weight_management": 0.0108
+        }
+      }
+    },
+    {
+      "id": "weight_95kg",
+      "comparison_parent": "baseline",
+      "changed_profile": {
+        "weight_kg": 95
+      },
+      "changed_summary": {},
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 95,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 31.02,
+        "bmi_category": "Obese",
+        "bmiCategory": "Obese",
+        "bmi_explanation": "Your BMI is well above the typical range. Consider discussing this with a qualified health professional.",
+        "bmiExplanation": "Your BMI is well above the typical range. Consider discussing this with a qualified health professional.",
+        "bmr": 1898.75,
+        "tdee": 2943.06,
+        "calorie_target": 2943,
+        "calorieTarget": 2943,
+        "protein_g": 114,
+        "proteinG": 114,
+        "carbs_g": 424,
+        "carbsG": 424,
+        "fat_g": 88,
+        "fatG": 88,
+        "fiber_g": 41,
+        "fiberG": 41,
+        "water_target_ml": 3825,
+        "waterTargetMl": 3825,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 31.02,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 0.771,
+        "hydration_adequacy": 0,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 0.869,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "weight_management",
+        "categoryLabel": "Weight Management",
+        "category_label": "Weight Management",
+        "confidence": 0.8939,
+        "probabilities": {
+          "activity_focus": 0.0049,
+          "balanced_wellness": 0.0458,
+          "fitness_improvement": 0.0161,
+          "hydration_focus": 0.0312,
+          "sleep_focus": 0.0081,
+          "weight_management": 0.8939
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'weight management'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 24.600100005045533,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "weight_management",
+        "probabilities": {
+          "activity_focus": 0.0019,
+          "balanced_wellness": 0.0094,
+          "fitness_improvement": 0.007,
+          "hydration_focus": 0.0028,
+          "sleep_focus": 0.0039,
+          "weight_management": 0.9749
+        }
+      }
+    },
+    {
+      "id": "age_55",
+      "comparison_parent": "baseline",
+      "changed_profile": {
+        "age": 55
+      },
+      "changed_summary": {},
+      "profile": {
+        "age": 55,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1523.75,
+        "tdee": 2361.81,
+        "calorie_target": 2362,
+        "calorieTarget": 2362,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 347,
+        "carbsG": 347,
+        "fat_g": 71,
+        "fatG": 71,
+        "fiber_g": 33,
+        "fiberG": 33,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 55,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 1.082,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "balanced_wellness",
+        "categoryLabel": "Balanced Wellness",
+        "category_label": "Balanced Wellness",
+        "confidence": 0.7707,
+        "probabilities": {
+          "activity_focus": 0.001,
+          "balanced_wellness": 0.7707,
+          "fitness_improvement": 0.1114,
+          "hydration_focus": 0.0091,
+          "sleep_focus": 0.0121,
+          "weight_management": 0.0957
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'balanced wellness'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 24.08789997571148,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "balanced_wellness",
+        "probabilities": {
+          "activity_focus": 0.0036,
+          "balanced_wellness": 0.9759,
+          "fitness_improvement": 0.0034,
+          "hydration_focus": 0.004,
+          "sleep_focus": 0.005,
+          "weight_management": 0.008
+        }
+      }
+    },
+    {
+      "id": "stress_5",
+      "comparison_parent": "baseline",
+      "changed_profile": {
+        "stress_level": 5
+      },
+      "changed_summary": {},
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 5
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 30,
+        "avg_steps": 8000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 30,
+        "exercise_adequacy": 1,
+        "steps_ratio": 1,
+        "calorie_ratio": 1,
+        "stress_level": 5,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "balanced_wellness",
+        "categoryLabel": "Balanced Wellness",
+        "category_label": "Balanced Wellness",
+        "confidence": 0.7837,
+        "probabilities": {
+          "activity_focus": 0.0034,
+          "balanced_wellness": 0.7837,
+          "fitness_improvement": 0.0908,
+          "hydration_focus": 0.0109,
+          "sleep_focus": 0.0118,
+          "weight_management": 0.0992
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'balanced wellness'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 24.494600016623735,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "balanced_wellness",
+        "probabilities": {
+          "activity_focus": 0.0045,
+          "balanced_wellness": 0.969,
+          "fitness_improvement": 0.0058,
+          "hydration_focus": 0.0048,
+          "sleep_focus": 0.0087,
+          "weight_management": 0.007
+        }
+      }
+    },
+    {
+      "id": "low_movement",
+      "comparison_parent": "exercise_0min",
+      "changed_profile": {},
+      "changed_summary": {
+        "avg_exercise_minutes": 0,
+        "avg_steps": 1000
+      },
+      "profile": {
+        "age": 30,
+        "gender": "male",
+        "height_cm": 175,
+        "weight_kg": 70,
+        "activity_level": "moderate",
+        "goal": "general_wellness",
+        "food_preference": "vegetarian",
+        "allergy_list": [
+          "peanut"
+        ],
+        "dislike_list": [],
+        "sleep_hours": 8,
+        "water_intake_ml": 2800,
+        "stress_level": 3
+      },
+      "summary": {
+        "avg_sleep": 8,
+        "avg_water": 2950,
+        "avg_exercise_minutes": 0,
+        "avg_steps": 1000,
+        "avg_calories": 2556,
+        "avg_stress": 3
+      },
+      "metrics": {
+        "bmi": 22.86,
+        "bmi_category": "Normal",
+        "bmiCategory": "Normal",
+        "bmi_explanation": "Your BMI sits within the typical range for your height.",
+        "bmiExplanation": "Your BMI sits within the typical range for your height.",
+        "bmr": 1648.75,
+        "tdee": 2555.56,
+        "calorie_target": 2556,
+        "calorieTarget": 2556,
+        "protein_g": 84,
+        "proteinG": 84,
+        "carbs_g": 382,
+        "carbsG": 382,
+        "fat_g": 77,
+        "fatG": 77,
+        "fiber_g": 36,
+        "fiberG": 36,
+        "water_target_ml": 2950,
+        "waterTargetMl": 2950,
+        "activity_level": "moderate",
+        "activityLevel": "moderate",
+        "goal": "general_wellness",
+        "calorie_adjustment_pct": 0,
+        "calorieAdjustmentPct": 0
+      },
+      "features": {
+        "bmi": 22.86,
+        "age": 30,
+        "activity_score": 3,
+        "sleep_hours": 8,
+        "sleep_adequacy": 1,
+        "hydration_ratio": 1,
+        "hydration_adequacy": 1,
+        "exercise_minutes": 0,
+        "exercise_adequacy": 0,
+        "steps_ratio": 0.125,
+        "calorie_ratio": 1,
+        "stress_level": 3,
+        "goal_code": 6,
+        "gender_code": 0
+      },
+      "http_status": 200,
+      "api": {
+        "available": true,
+        "category": "activity_focus",
+        "categoryLabel": "Activity Focus",
+        "category_label": "Activity Focus",
+        "confidence": 0.7634,
+        "probabilities": {
+          "activity_focus": 0.7634,
+          "balanced_wellness": 0.1278,
+          "fitness_improvement": 0.0504,
+          "hydration_focus": 0.0121,
+          "sleep_focus": 0.0159,
+          "weight_management": 0.0303
+        },
+        "topFeatures": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "top_features": [
+          {
+            "feature": "sleep_hours",
+            "importance": 0.2192
+          },
+          {
+            "feature": "hydration_ratio",
+            "importance": 0.207
+          },
+          {
+            "feature": "bmi",
+            "importance": 0.1535
+          },
+          {
+            "feature": "exercise_minutes",
+            "importance": 0.0984
+          }
+        ],
+        "explanation": "The model assigned the synthetic focus category 'activity focus'. Global feature importances (not an explanation of this individual prediction): sleep_hours, hydration_ratio, bmi, exercise_minutes. Model probabilities are not clinical confidence. This is general wellness guidance, not a diagnosis.",
+        "modelType": "RandomForestClassifier",
+        "model_type": "RandomForestClassifier"
+      },
+      "latency_ms": 23.901899985503405,
+      "matches_direct_runtime": true,
+      "raw_preprocessing_parity": true,
+      "raw_endpoint_matches": true,
+      "candidate": {
+        "category": "activity_focus",
+        "probabilities": {
+          "activity_focus": 0.9916,
+          "balanced_wellness": 0.0054,
+          "fitness_improvement": 0.0012,
+          "hydration_focus": 0.0002,
+          "sleep_focus": 0.0012,
+          "weight_management": 0.0004
+        }
+      }
+    }
+  ],
+  "invalid_requests": [
+    {
+      "payload": {
+        "features": {
+          "bmi": 22
+        }
+      },
+      "http_status": 200,
+      "body": {
+        "available": false,
+        "reason": "Invalid input: missing features ['age', 'activity_score', 'sleep_hours', 'sleep_adequacy', 'hydration_ratio', 'hydration_adequacy', 'exercise_minutes', 'exercise_adequacy', 'steps_ratio', 'calorie_ratio', 'stress_level', 'goal_code', 'gender_code']"
+      }
+    },
+    {
+      "payload": {
+        "features": []
+      },
+      "http_status": 422,
+      "body": {
+        "detail": [
+          {
+            "type": "dict_type",
+            "loc": [
+              "body",
+              "features"
+            ],
+            "msg": "Input should be a valid dictionary",
+            "input": []
+          }
+        ]
+      }
+    },
+    {
+      "payload": {
+        "raw": {
+          "age": 30,
+          "bmi": 22,
+          "sleep_hours": 25
+        }
+      },
+      "http_status": 200,
+      "body": {
+        "available": false,
+        "reason": "Invalid raw input; check required fields, types, categories and application bounds."
+      }
+    }
+  ],
+  "repeated_request_identical": true,
+  "config_hashes": {
+    "backend\\.env": "ab263212825626d5ac93521cb659ea4b5e835a3169505b74809986827e41025f",
+    "ai-ml\\.env": "e685b24d5243a70df06d9895c9f50e32ee7fbc002f1860e77122bd78715d173a",
+    "backend\\src\\config\\env.js": "7409e40796fd93fe12f9573bf86729ce88012639d355fbdc0ee9d750f9ce1aa7",
+    "ai-ml\\app\\config.py": "c9cc8e3979a165cb596c5e497a90ffcb376677c0a570a6943be2bc5b8072bd57"
+  }
+}

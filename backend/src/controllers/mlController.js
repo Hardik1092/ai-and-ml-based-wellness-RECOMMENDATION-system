@@ -44,7 +44,7 @@ const explanation = asyncHandler(async (req, res) => {
     status_label: modelAvailable ? 'ready' : (serviceOnline ? 'online_fallback' : 'offline'),
     fallback_active: !modelAvailable,
     fallback_reason: !serviceOnline
-      ? 'Machine learning service (port 8000) is currently offline. Recommendations are running on deterministic clinical safety rules.'
+      ? 'Machine learning service (port 8000) is currently offline. Recommendations are using configured wellness rules.'
       : (!ctx.ml?.available ? (ctx.ml?.reason || 'Recommendation engine is operating in deterministic safety mode.') : null),
     model_type: modelType,
     model_architecture: modelType,

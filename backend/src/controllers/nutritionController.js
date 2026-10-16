@@ -19,7 +19,8 @@ const foods = asyncHandler(async (req, res) => {
   const filter = {};
   if (req.query.meal_type) filter.mealType = req.query.meal_type;
   if (req.query.category) filter.category = req.query.category;
-  const items = await Food.find(filter).sort({ foodName: 1 });
+  const limit = Math.min(Number(req.query.limit || 200), 500);
+  const items = await Food.find(filter).sort({ foodName: 1 }).limit(limit);
   return success(res, items.map((f) => f.toPublic()), `${items.length} foods.`);
 });
 

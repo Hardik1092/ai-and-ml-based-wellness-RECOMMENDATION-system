@@ -1,0 +1,370 @@
+{
+  "date_utc": "2026-10-16T10:03:29.009632+00:00",
+  "cases": 200,
+  "model_sha256": "4d131cc7cbd2b8350cc1338adf8cc2f6447a6f3b889feb18b8e4fe7b0ef7729e",
+  "benchmark_sha256": "43f02e05885381a736c4905322c5a2816c9fcf2c2e7e0ccb1da1dbd8fa41661a",
+  "ml_type": "HistGradientBoostingClassifier",
+  "llm_requested": true,
+  "llm_model": "gemini-3.5-flash-lite",
+  "prompt_version": "cep-common-category-v1",
+  "prompt_sha256": "8fbb9707962a07c40a36af1d62e6234d727d461f23cb6624820fea6e18c22183",
+  "parameters": {
+    "maxOutputTokens": 1024,
+    "responseMimeType": "application/json"
+  },
+  "request_interval_seconds": 1.0,
+  "configured_application_model": "gemini-1.5-flash",
+  "max_transient_retries": 2,
+  "llm_blocker": null,
+  "cost_usd": null,
+  "cost_note": "No billing data or verified token rates supplied; unknown, not zero.",
+  "human_ratings": "pending",
+  "repeat_consistency": "not measured",
+  "ml": {
+    "accuracy": 0.93,
+    "report": {
+      "activity_focus": {
+        "precision": 0.875,
+        "recall": 0.7777777777777778,
+        "f1-score": 0.8235294117647058,
+        "support": 9.0
+      },
+      "balanced_wellness": {
+        "precision": 0.95,
+        "recall": 0.95,
+        "f1-score": 0.95,
+        "support": 20.0
+      },
+      "fitness_improvement": {
+        "precision": 0.9333333333333333,
+        "recall": 0.7368421052631579,
+        "f1-score": 0.8235294117647058,
+        "support": 19.0
+      },
+      "hydration_focus": {
+        "precision": 0.8857142857142857,
+        "recall": 0.96875,
+        "f1-score": 0.9253731343283582,
+        "support": 32.0
+      },
+      "sleep_focus": {
+        "precision": 0.9642857142857143,
+        "recall": 0.9642857142857143,
+        "f1-score": 0.9642857142857143,
+        "support": 56.0
+      },
+      "weight_management": {
+        "precision": 0.9242424242424242,
+        "recall": 0.953125,
+        "f1-score": 0.9384615384615385,
+        "support": 64.0
+      },
+      "accuracy": 0.93,
+      "macro avg": {
+        "precision": 0.9220959595959596,
+        "recall": 0.8917967662211083,
+        "f1-score": 0.9041965351008371,
+        "support": 200.0
+      },
+      "weighted avg": {
+        "precision": 0.9305135281385282,
+        "recall": 0.93,
+        "f1-score": 0.9286615114472884,
+        "support": 200.0
+      }
+    },
+    "confusion_labels": [
+      "activity_focus",
+      "balanced_wellness",
+      "fitness_improvement",
+      "hydration_focus",
+      "sleep_focus",
+      "weight_management"
+    ],
+    "confusion_matrix": [
+      [
+        7,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        19,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        14,
+        2,
+        1,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        31,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        54,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        2,
+        0,
+        61
+      ]
+    ],
+    "latency_ms_p50": 33.27555001305882,
+    "latency_ms_p95": 42.17341500479959
+  },
+  "rule": {
+    "accuracy": 0.935,
+    "report": {
+      "activity_focus": {
+        "precision": 0.875,
+        "recall": 0.7777777777777778,
+        "f1-score": 0.8235294117647058,
+        "support": 9.0
+      },
+      "balanced_wellness": {
+        "precision": 0.95,
+        "recall": 0.95,
+        "f1-score": 0.95,
+        "support": 20.0
+      },
+      "fitness_improvement": {
+        "precision": 1.0,
+        "recall": 0.7368421052631579,
+        "f1-score": 0.8484848484848485,
+        "support": 19.0
+      },
+      "hydration_focus": {
+        "precision": 0.8857142857142857,
+        "recall": 0.96875,
+        "f1-score": 0.9253731343283582,
+        "support": 32.0
+      },
+      "sleep_focus": {
+        "precision": 0.9642857142857143,
+        "recall": 0.9642857142857143,
+        "f1-score": 0.9642857142857143,
+        "support": 56.0
+      },
+      "weight_management": {
+        "precision": 0.9253731343283582,
+        "recall": 0.96875,
+        "f1-score": 0.9465648854961832,
+        "support": 64.0
+      },
+      "accuracy": 0.935,
+      "macro avg": {
+        "precision": 0.9333955223880596,
+        "recall": 0.894400932887775,
+        "f1-score": 0.9097063323933017,
+        "support": 200.0
+      },
+      "weighted avg": {
+        "precision": 0.9372086886993604,
+        "recall": 0.935,
+        "f1-score": 0.9336253489867883,
+        "support": 200.0
+      }
+    },
+    "confusion_labels": [
+      "activity_focus",
+      "balanced_wellness",
+      "fitness_improvement",
+      "hydration_focus",
+      "sleep_focus",
+      "weight_management"
+    ],
+    "confusion_matrix": [
+      [
+        7,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        19,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        14,
+        2,
+        1,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        31,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        54,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        0,
+        62
+      ]
+    ],
+    "latency_ms_p50": 0.0021999876480549574,
+    "latency_ms_p95": 0.0034099968615919317
+  },
+  "llm": {
+    "attempted": 200,
+    "valid": 189,
+    "pending": 0,
+    "schema_validity_rate_returned": 0.9545454545454546,
+    "valid_only_metrics": {
+      "accuracy": 0.8571428571428571,
+      "report": {
+        "activity_focus": {
+          "precision": 0.5454545454545454,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.6,
+          "support": 9.0
+        },
+        "balanced_wellness": {
+          "precision": 0.8571428571428571,
+          "recall": 0.4,
+          "f1-score": 0.5454545454545454,
+          "support": 15.0
+        },
+        "fitness_improvement": {
+          "precision": 0.875,
+          "recall": 0.4666666666666667,
+          "f1-score": 0.6086956521739131,
+          "support": 15.0
+        },
+        "hydration_focus": {
+          "precision": 0.8157894736842105,
+          "recall": 0.96875,
+          "f1-score": 0.8857142857142857,
+          "support": 32.0
+        },
+        "sleep_focus": {
+          "precision": 0.9636363636363636,
+          "recall": 0.9464285714285714,
+          "f1-score": 0.954954954954955,
+          "support": 56.0
+        },
+        "weight_management": {
+          "precision": 0.8428571428571429,
+          "recall": 0.9516129032258065,
+          "f1-score": 0.8939393939393939,
+          "support": 62.0
+        },
+        "accuracy": 0.8571428571428571,
+        "macro avg": {
+          "precision": 0.8166467304625199,
+          "recall": 0.7333541346646184,
+          "f1-score": 0.7481264720395155,
+          "support": 189.0
+        },
+        "weighted avg": {
+          "precision": 0.8635834716661784,
+          "recall": 0.8571428571428571,
+          "f1-score": 0.8463324339100736,
+          "support": 189.0
+        }
+      },
+      "confusion_labels": [
+        "activity_focus",
+        "balanced_wellness",
+        "fitness_improvement",
+        "hydration_focus",
+        "sleep_focus",
+        "weight_management"
+      ],
+      "confusion_matrix": [
+        [
+          6,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          3,
+          6,
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          7,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          31,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          53,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0,
+          59
+        ]
+      ]
+    },
+    "full_set_accuracy": 0.81
+  }
+}

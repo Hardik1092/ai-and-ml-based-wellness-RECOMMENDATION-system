@@ -54,4 +54,22 @@ describe('profile logs dashboard feedback isolation', () => {
     const agent = await authAgent('rng@test.com');
     expect((await agent.get('/api/dashboard?range=12')).status).toBe(422);
   });
+
+  test('handles malformed ObjectId with 400 Bad Request', async () => {
+    const agent = await authAgent('malformed@test.com');
+    const res = await agent.put('/api/logs/not-a-valid-object-id').send({ water: 500 });
+    expect(res.status).toBe(400);
+    expect(res.body.error).toBe('INVALID_ID');
+  });
+
+  test('clears session and returns 401 if user is deleted from database', async () => {
+    const agent = await authAgent('deleted@test.com');
+    const meBefore = await agent.get('/api/auth/me');
+    expect(meBefore.status).toBe(200);
+    const userId = meBefore.body.data.id;
+    const { User } = require('../src/models');
+    await User.findByIdAndDelete(userId);
+    const meAfter = await agent.get('/api/auth/me');
+    expect(meAfter.status).toBe(401);
+  });
 });

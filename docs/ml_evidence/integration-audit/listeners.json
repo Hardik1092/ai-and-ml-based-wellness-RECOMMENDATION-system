@@ -1,0 +1,22 @@
+{
+  "listeners": [
+    {
+      "LocalAddress": "::1",
+      "LocalPort": 5173,
+      "OwningProcess": 3492
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8000,
+      "OwningProcess": 1824
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5000,
+      "OwningProcess": 2064
+    }
+  ],
+  "mlPid": 1824,
+  "mlStarted": "2026-10-16T19:20:35.807788+05:30",
+  "mlUsesVerifiedLauncher": true
+}

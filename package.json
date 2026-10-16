@@ -12,7 +12,7 @@
     "seed": "npm run seed --prefix backend --",
     "seed:demo": "npm run seed --prefix backend -- --demo-user",
     "test": "npm test --prefix backend",
-    "test:ml": "cd ai-ml && python -m pytest -q",
+    "test:ml": "node scripts/test-ml.js",
     "build": "npm run build --prefix frontend"
   },
   "devDependencies": {

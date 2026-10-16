@@ -1,0 +1,51 @@
+{
+  "status": "ok",
+  "output": {
+    "category": "weight_management",
+    "rationale": "Sleep hours (7.9) are not under 6, hydration ratio (0.813) is not under 0.6, exercise minutes (46.0) are not under 12, and steps ratio (0.824) is not under 0.5625. However, BMI (28.99) is greater than or equal to 25, triggering the weight management category.",
+    "suggestions": [
+      "Focus on nutrient-dense foods and balanced meal portions",
+      "Maintain consistent daily physical activity routines",
+      "Prioritize stress-reduction techniques to support overall wellness"
+    ]
+  },
+  "safety_flags": [],
+  "human_safety_review": "pending",
+  "model_version": "gemini-3.5-flash-lite",
+  "usage": {
+    "promptTokenCount": 457,
+    "candidatesTokenCount": 159,
+    "totalTokenCount": 616,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 457
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "http_status": 200,
+  "response_id": "3e3RaoevLKSP4-EPg_ywkAU",
+  "prompt_feedback": null,
+  "finish_reason": "STOP",
+  "provider_safety_ratings": null,
+  "raw_output": "{\n  \"category\": \"weight_management\",\n  \"rationale\": \"Sleep hours (7.9) are not under 6, hydration ratio (0.813) is not under 0.6, exercise minutes (46.0) are not under 12, and steps ratio (0.824) is not under 0.5625. However, BMI (28.99) is greater than or equal to 25, triggering the weight management category.\",\n  \"suggestions\": [\n    \"Focus on nutrient-dense foods and balanced meal portions\",\n    \"Maintain consistent daily physical activity routines\",\n    \"Prioritize stress-reduction techniques to support overall wellness\"\n  ]\n}",
+  "latency_ms": 4527.139099984197,
+  "profile_seed": 91821,
+  "features": {
+    "bmi": 28.99,
+    "age": 55.0,
+    "activity_score": 2.0,
+    "sleep_hours": 7.9,
+    "sleep_adequacy": 1.0,
+    "hydration_ratio": 0.813,
+    "hydration_adequacy": 0.0,
+    "exercise_minutes": 46.0,
+    "exercise_adequacy": 1.0,
+    "steps_ratio": 0.824,
+    "calorie_ratio": 0.76,
+    "stress_level": 4.0,
+    "goal_code": 4.0,
+    "gender_code": 1.0
+  }
+}

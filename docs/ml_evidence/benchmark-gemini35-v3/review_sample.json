@@ -1,0 +1,1204 @@
+[
+  {
+    "case_id": "case-000",
+    "features": {
+      "bmi": 38.03,
+      "age": 17,
+      "activity_score": 2,
+      "sleep_hours": 6.39,
+      "sleep_adequacy": 0,
+      "hydration_ratio": 0.863,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 18.0,
+      "exercise_adequacy": 0,
+      "steps_ratio": 1.101,
+      "calorie_ratio": 1.09,
+      "stress_level": 2,
+      "goal_code": 4,
+      "gender_code": 0
+    },
+    "reference": "activity_focus",
+    "ml": {
+      "category": "weight_management",
+      "latency_ms": 15.03840001532808
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "weight_management",
+        "rationale": "Applying the rules: sleep_hours (6.39) is not < 6; hydration_ratio (0.863) is not < 0.6; exercise_minutes (18.0) is not < 12; finally, bmi (38.03) is >= 25, which triggers the weight_management category.",
+        "suggestions": [
+          "Focus on incorporating regular physical activity into your daily routine.",
+          "Maintain a balanced diet with a variety of nutritious foods.",
+          "Prioritize consistent sleep habits to support overall well-being."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 442,
+        "candidatesTokenCount": 149,
+        "totalTokenCount": 591,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 442
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "S-7RavfSL9z7juMP966IsQ0",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"weight_management\",\n  \"rationale\": \"Applying the rules: sleep_hours (6.39) is not < 6; hydration_ratio (0.863) is not < 0.6; exercise_minutes (18.0) is not < 12; finally, bmi (38.03) is >= 25, which triggers the weight_management category.\",\n  \"suggestions\": [\n    \"Focus on incorporating regular physical activity into your daily routine.\",\n    \"Maintain a balanced diet with a variety of nutritious foods.\",\n    \"Prioritize consistent sleep habits to support overall well-being.\"\n  ]\n}",
+      "attempt_latency_ms": 5075.018200004706,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "weight_management",
+            "rationale": "Applying the rules: sleep_hours (6.39) is not < 6; hydration_ratio (0.863) is not < 0.6; exercise_minutes (18.0) is not < 12; finally, bmi (38.03) is >= 25, which triggers the weight_management category.",
+            "suggestions": [
+              "Focus on incorporating regular physical activity into your daily routine.",
+              "Maintain a balanced diet with a variety of nutritious foods.",
+              "Prioritize consistent sleep habits to support overall well-being."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 442,
+            "candidatesTokenCount": 149,
+            "totalTokenCount": 591,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 442
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "S-7RavfSL9z7juMP966IsQ0",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"weight_management\",\n  \"rationale\": \"Applying the rules: sleep_hours (6.39) is not < 6; hydration_ratio (0.863) is not < 0.6; exercise_minutes (18.0) is not < 12; finally, bmi (38.03) is >= 25, which triggers the weight_management category.\",\n  \"suggestions\": [\n    \"Focus on incorporating regular physical activity into your daily routine.\",\n    \"Maintain a balanced diet with a variety of nutritious foods.\",\n    \"Prioritize consistent sleep habits to support overall well-being.\"\n  ]\n}",
+          "attempt_latency_ms": 5075.018200004706,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 5075.042400014354,
+      "requested_at_utc": "2026-10-16T09:28:44.076671+00:00"
+    },
+    "rule": {
+      "category": "weight_management",
+      "latency_ms": 0.0026999914553016424
+    }
+  },
+  {
+    "case_id": "case-001",
+    "features": {
+      "bmi": 22.55,
+      "age": 50,
+      "activity_score": 2,
+      "sleep_hours": 5.01,
+      "sleep_adequacy": 0,
+      "hydration_ratio": 0.655,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 37.0,
+      "exercise_adequacy": 1,
+      "steps_ratio": 0.753,
+      "calorie_ratio": 1.109,
+      "stress_level": 2,
+      "goal_code": 3,
+      "gender_code": 1
+    },
+    "reference": "sleep_focus",
+    "ml": {
+      "category": "sleep_focus",
+      "latency_ms": 29.917099978774786
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "sleep_focus",
+        "rationale": "The classification rule prioritizes sleep duration. Since sleep_hours (5.01) is less than 6, the profile falls under the sleep_focus category.",
+        "suggestions": [
+          "Maintain a consistent nightly rest schedule",
+          "Create a relaxing wind-down routine before bedtime",
+          "Limit screen usage in the evening hours"
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 97,
+        "totalTokenCount": 540,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "Ue7RaozHH6694-EP5auW-QY",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"sleep_focus\",\n  \"rationale\": \"The classification rule prioritizes sleep duration. Since sleep_hours (5.01) is less than 6, the profile falls under the sleep_focus category.\",\n  \"suggestions\": [\n    \"Maintain a consistent nightly rest schedule\",\n    \"Create a relaxing wind-down routine before bedtime\",\n    \"Limit screen usage in the evening hours\"\n  ]\n}",
+      "attempt_latency_ms": 2556.5635000239126,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "sleep_focus",
+            "rationale": "The classification rule prioritizes sleep duration. Since sleep_hours (5.01) is less than 6, the profile falls under the sleep_focus category.",
+            "suggestions": [
+              "Maintain a consistent nightly rest schedule",
+              "Create a relaxing wind-down routine before bedtime",
+              "Limit screen usage in the evening hours"
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 443,
+            "candidatesTokenCount": 97,
+            "totalTokenCount": 540,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 443
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "Ue7RaozHH6694-EP5auW-QY",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"sleep_focus\",\n  \"rationale\": \"The classification rule prioritizes sleep duration. Since sleep_hours (5.01) is less than 6, the profile falls under the sleep_focus category.\",\n  \"suggestions\": [\n    \"Maintain a consistent nightly rest schedule\",\n    \"Create a relaxing wind-down routine before bedtime\",\n    \"Limit screen usage in the evening hours\"\n  ]\n}",
+          "attempt_latency_ms": 2556.5635000239126,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 2556.6410000028554,
+      "requested_at_utc": "2026-10-16T09:28:50.182980+00:00"
+    },
+    "rule": {
+      "category": "sleep_focus",
+      "latency_ms": 0.001600012183189392
+    }
+  },
+  {
+    "case_id": "case-002",
+    "features": {
+      "bmi": 14.94,
+      "age": 24,
+      "activity_score": 1,
+      "sleep_hours": 8.56,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 1.137,
+      "hydration_adequacy": 1,
+      "exercise_minutes": 50.0,
+      "exercise_adequacy": 1,
+      "steps_ratio": 1.086,
+      "calorie_ratio": 0.893,
+      "stress_level": 1,
+      "goal_code": 1,
+      "gender_code": 0
+    },
+    "reference": "weight_management",
+    "ml": {
+      "category": "weight_management",
+      "latency_ms": 31.357100000604987
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "weight_management",
+        "rationale": "Evaluating the rules sequentially: sleep_hours (8.56) is not < 6; hydration_ratio (1.137) is not < 0.6; exercise_minutes (50.0) is not < 12; however, bmi (14.94) is < 18.5, which triggers the weight_management category according to the task definition.",
+        "suggestions": [
+          "Consult a qualified healthcare professional regarding low body mass index.",
+          "Focus on nutrient-dense foods to support overall energy.",
+          "Maintain consistent, balanced lifestyle habits."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 152,
+        "totalTokenCount": 595,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "Ve7RarCmC-nIjuMPhJLI2AY",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"weight_management\",\n  \"rationale\": \"Evaluating the rules sequentially: sleep_hours (8.56) is not < 6; hydration_ratio (1.137) is not < 0.6; exercise_minutes (50.0) is not < 12; however, bmi (14.94) is < 18.5, which triggers the weight_management category according to the task definition.\",\n  \"suggestions\": [\n    \"Consult a qualified healthcare professional regarding low body mass index.\",\n    \"Focus on nutrient-dense foods to support overall energy.\",\n    \"Maintain consistent, balanced lifestyle habits.\"\n  ]\n}",
+      "attempt_latency_ms": 3299.6564999921247,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "weight_management",
+            "rationale": "Evaluating the rules sequentially: sleep_hours (8.56) is not < 6; hydration_ratio (1.137) is not < 0.6; exercise_minutes (50.0) is not < 12; however, bmi (14.94) is < 18.5, which triggers the weight_management category according to the task definition.",
+            "suggestions": [
+              "Consult a qualified healthcare professional regarding low body mass index.",
+              "Focus on nutrient-dense foods to support overall energy.",
+              "Maintain consistent, balanced lifestyle habits."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 443,
+            "candidatesTokenCount": 152,
+            "totalTokenCount": 595,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 443
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "Ve7RarCmC-nIjuMPhJLI2AY",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"weight_management\",\n  \"rationale\": \"Evaluating the rules sequentially: sleep_hours (8.56) is not < 6; hydration_ratio (1.137) is not < 0.6; exercise_minutes (50.0) is not < 12; however, bmi (14.94) is < 18.5, which triggers the weight_management category according to the task definition.\",\n  \"suggestions\": [\n    \"Consult a qualified healthcare professional regarding low body mass index.\",\n    \"Focus on nutrient-dense foods to support overall energy.\",\n    \"Maintain consistent, balanced lifestyle habits.\"\n  ]\n}",
+          "attempt_latency_ms": 3299.6564999921247,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 3299.7080000059213,
+      "requested_at_utc": "2026-10-16T09:28:53.771843+00:00"
+    },
+    "rule": {
+      "category": "weight_management",
+      "latency_ms": 0.003100023604929447
+    }
+  },
+  {
+    "case_id": "case-003",
+    "features": {
+      "bmi": 25.21,
+      "age": 33,
+      "activity_score": 3,
+      "sleep_hours": 7.57,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 0.969,
+      "hydration_adequacy": 1,
+      "exercise_minutes": 89.0,
+      "exercise_adequacy": 1,
+      "steps_ratio": 1.836,
+      "calorie_ratio": 1.423,
+      "stress_level": 2,
+      "goal_code": 2,
+      "gender_code": 1
+    },
+    "reference": "weight_management",
+    "ml": {
+      "category": "weight_management",
+      "latency_ms": 32.92140000849031
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "weight_management",
+        "rationale": "Sleep hours (7.57) >= 6, hydration ratio (0.969) >= 0.6, exercise minutes (89.0) >= 12, but bmi (25.21) >= 25, which triggers the weight_management category.",
+        "suggestions": [
+          "Focus on nutrient-dense foods to support overall wellness.",
+          "Maintain a consistent daily routine for balanced energy levels.",
+          "Monitor portion sizes mindfully during meals."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 129,
+        "totalTokenCount": 572,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "We7Rar7tHPurg8UP6vmGsAU",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"weight_management\",\n  \"rationale\": \"Sleep hours (7.57) >= 6, hydration ratio (0.969) >= 0.6, exercise minutes (89.0) >= 12, but bmi (25.21) >= 25, which triggers the weight_management category.\",\n  \"suggestions\": [\n    \"Focus on nutrient-dense foods to support overall wellness.\",\n    \"Maintain a consistent daily routine for balanced energy levels.\",\n    \"Monitor portion sizes mindfully during meals.\"\n  ]\n}",
+      "attempt_latency_ms": 3905.6430000055116,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "weight_management",
+            "rationale": "Sleep hours (7.57) >= 6, hydration ratio (0.969) >= 0.6, exercise minutes (89.0) >= 12, but bmi (25.21) >= 25, which triggers the weight_management category.",
+            "suggestions": [
+              "Focus on nutrient-dense foods to support overall wellness.",
+              "Maintain a consistent daily routine for balanced energy levels.",
+              "Monitor portion sizes mindfully during meals."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 443,
+            "candidatesTokenCount": 129,
+            "totalTokenCount": 572,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 443
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "We7Rar7tHPurg8UP6vmGsAU",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"weight_management\",\n  \"rationale\": \"Sleep hours (7.57) >= 6, hydration ratio (0.969) >= 0.6, exercise minutes (89.0) >= 12, but bmi (25.21) >= 25, which triggers the weight_management category.\",\n  \"suggestions\": [\n    \"Focus on nutrient-dense foods to support overall wellness.\",\n    \"Maintain a consistent daily routine for balanced energy levels.\",\n    \"Monitor portion sizes mindfully during meals.\"\n  ]\n}",
+          "attempt_latency_ms": 3905.6430000055116,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 3905.673100001877,
+      "requested_at_utc": "2026-10-16T09:28:58.105230+00:00"
+    },
+    "rule": {
+      "category": "weight_management",
+      "latency_ms": 0.0023999891709536314
+    }
+  },
+  {
+    "case_id": "case-005",
+    "features": {
+      "bmi": 17.89,
+      "age": 69,
+      "activity_score": 2,
+      "sleep_hours": 7.13,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 0.347,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 26.0,
+      "exercise_adequacy": 0,
+      "steps_ratio": 0.533,
+      "calorie_ratio": 1.417,
+      "stress_level": 3,
+      "goal_code": 2,
+      "gender_code": 0
+    },
+    "reference": "hydration_focus",
+    "ml": {
+      "category": "hydration_focus",
+      "latency_ms": 28.13720001722686
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "hydration_focus",
+        "rationale": "Evaluating the rules sequentially: sleep_hours (7.13) is not less than 6. However, hydration_ratio (0.347) is less than 0.6, which triggers the hydration_focus category condition.",
+        "suggestions": [
+          "Keep a reusable water bottle nearby throughout the day to encourage regular sipping.",
+          "Pair daily routines, such as meals or breaks, with drinking a glass of water.",
+          "Incorporate water-rich fruits and vegetables into your daily meals."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 132,
+        "totalTokenCount": 575,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "ZO7RavrzBbXHjuMPq-mymAg",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Evaluating the rules sequentially: sleep_hours (7.13) is not less than 6. However, hydration_ratio (0.347) is less than 0.6, which triggers the hydration_focus category condition.\",\n  \"suggestions\": [\n    \"Keep a reusable water bottle nearby throughout the day to encourage regular sipping.\",\n    \"Pair daily routines, such as meals or breaks, with drinking a glass of water.\",\n    \"Incorporate water-rich fruits and vegetables into your daily meals.\"\n  ]\n}",
+      "attempt_latency_ms": 2388.7959999847226,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "hydration_focus",
+            "rationale": "Evaluating the rules sequentially: sleep_hours (7.13) is not less than 6. However, hydration_ratio (0.347) is less than 0.6, which triggers the hydration_focus category condition.",
+            "suggestions": [
+              "Keep a reusable water bottle nearby throughout the day to encourage regular sipping.",
+              "Pair daily routines, such as meals or breaks, with drinking a glass of water.",
+              "Incorporate water-rich fruits and vegetables into your daily meals."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 443,
+            "candidatesTokenCount": 132,
+            "totalTokenCount": 575,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 443
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "ZO7RavrzBbXHjuMPq-mymAg",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Evaluating the rules sequentially: sleep_hours (7.13) is not less than 6. However, hydration_ratio (0.347) is less than 0.6, which triggers the hydration_focus category condition.\",\n  \"suggestions\": [\n    \"Keep a reusable water bottle nearby throughout the day to encourage regular sipping.\",\n    \"Pair daily routines, such as meals or breaks, with drinking a glass of water.\",\n    \"Incorporate water-rich fruits and vegetables into your daily meals.\"\n  ]\n}",
+          "attempt_latency_ms": 2388.7959999847226,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 2388.8323999999557,
+      "requested_at_utc": "2026-10-16T09:29:08.693276+00:00"
+    },
+    "rule": {
+      "category": "hydration_focus",
+      "latency_ms": 0.00200001522898674
+    }
+  },
+  {
+    "case_id": "case-006",
+    "features": {
+      "bmi": 21.68,
+      "age": 18,
+      "activity_score": 2,
+      "sleep_hours": 6.57,
+      "sleep_adequacy": 0,
+      "hydration_ratio": 1.219,
+      "hydration_adequacy": 1,
+      "exercise_minutes": 12.0,
+      "exercise_adequacy": 0,
+      "steps_ratio": 0.56,
+      "calorie_ratio": 1.008,
+      "stress_level": 2,
+      "goal_code": 2,
+      "gender_code": 0
+    },
+    "reference": "fitness_improvement",
+    "ml": {
+      "category": "fitness_improvement",
+      "latency_ms": 29.42150001763366
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "activity_focus",
+        "rationale": "Sleep hours (6.57) are not less than 6. Hydration ratio (1.219) is not less than 0.6. Exercise minutes (12.0) are not less than 12, but steps_ratio (0.56) is less than 0.5625, satisfying the rule for activity_focus.",
+        "suggestions": [
+          "Consider incorporating short walking breaks throughout the day.",
+          "Explore light recreational activities to boost daily movement.",
+          "Keep track of daily step counts to monitor progress."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 442,
+        "candidatesTokenCount": 145,
+        "totalTokenCount": 587,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 442
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "Z-7RaqSZH-L2qfkPxbSAuAw",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"activity_focus\",\n  \"rationale\": \"Sleep hours (6.57) are not less than 6. Hydration ratio (1.219) is not less than 0.6. Exercise minutes (12.0) are not less than 12, but steps_ratio (0.56) is less than 0.5625, satisfying the rule for activity_focus.\",\n  \"suggestions\": [\n    \"Consider incorporating short walking breaks throughout the day.\",\n    \"Explore light recreational activities to boost daily movement.\",\n    \"Keep track of daily step counts to monitor progress.\"\n  ]\n}",
+      "attempt_latency_ms": 21314.16059998446,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "activity_focus",
+            "rationale": "Sleep hours (6.57) are not less than 6. Hydration ratio (1.219) is not less than 0.6. Exercise minutes (12.0) are not less than 12, but steps_ratio (0.56) is less than 0.5625, satisfying the rule for activity_focus.",
+            "suggestions": [
+              "Consider incorporating short walking breaks throughout the day.",
+              "Explore light recreational activities to boost daily movement.",
+              "Keep track of daily step counts to monitor progress."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 442,
+            "candidatesTokenCount": 145,
+            "totalTokenCount": 587,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 442
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "Z-7RaqSZH-L2qfkPxbSAuAw",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"activity_focus\",\n  \"rationale\": \"Sleep hours (6.57) are not less than 6. Hydration ratio (1.219) is not less than 0.6. Exercise minutes (12.0) are not less than 12, but steps_ratio (0.56) is less than 0.5625, satisfying the rule for activity_focus.\",\n  \"suggestions\": [\n    \"Consider incorporating short walking breaks throughout the day.\",\n    \"Explore light recreational activities to boost daily movement.\",\n    \"Keep track of daily step counts to monitor progress.\"\n  ]\n}",
+          "attempt_latency_ms": 21314.16059998446,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 21314.217500010272,
+      "requested_at_utc": "2026-10-16T09:29:12.112196+00:00"
+    },
+    "rule": {
+      "category": "fitness_improvement",
+      "latency_ms": 0.0035999983083456755
+    }
+  },
+  {
+    "case_id": "case-007",
+    "features": {
+      "bmi": 22.99,
+      "age": 65,
+      "activity_score": 3,
+      "sleep_hours": 7.56,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 0.259,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 3.0,
+      "exercise_adequacy": 0,
+      "steps_ratio": 0.859,
+      "calorie_ratio": 1.304,
+      "stress_level": 4,
+      "goal_code": 0,
+      "gender_code": 0
+    },
+    "reference": "hydration_focus",
+    "ml": {
+      "category": "hydration_focus",
+      "latency_ms": 26.543899992248043
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "hydration_focus",
+        "rationale": "Following the ordered task definition: sleep_hours (7.56) is not < 6, so we check hydration_ratio (0.259), which is < 0.6. Therefore, the assigned category is hydration_focus.",
+        "suggestions": [
+          "Keep a reusable water bottle nearby throughout the day.",
+          "Pair daily routines, such as meals, with a glass of water.",
+          "Monitor daily fluid intake using a simple tracking method."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 442,
+        "candidatesTokenCount": 124,
+        "totalTokenCount": 566,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 442
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "fe7RaoPkMfCCg8UPodqHwAk",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Following the ordered task definition: sleep_hours (7.56) is not < 6, so we check hydration_ratio (0.259), which is < 0.6. Therefore, the assigned category is hydration_focus.\",\n  \"suggestions\": [\n    \"Keep a reusable water bottle nearby throughout the day.\",\n    \"Pair daily routines, such as meals, with a glass of water.\",\n    \"Monitor daily fluid intake using a simple tracking method.\"\n  ]\n}",
+      "attempt_latency_ms": 2770.6273999938276,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "hydration_focus",
+            "rationale": "Following the ordered task definition: sleep_hours (7.56) is not < 6, so we check hydration_ratio (0.259), which is < 0.6. Therefore, the assigned category is hydration_focus.",
+            "suggestions": [
+              "Keep a reusable water bottle nearby throughout the day.",
+              "Pair daily routines, such as meals, with a glass of water.",
+              "Monitor daily fluid intake using a simple tracking method."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 442,
+            "candidatesTokenCount": 124,
+            "totalTokenCount": 566,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 442
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "fe7RaoPkMfCCg8UPodqHwAk",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Following the ordered task definition: sleep_hours (7.56) is not < 6, so we check hydration_ratio (0.259), which is < 0.6. Therefore, the assigned category is hydration_focus.\",\n  \"suggestions\": [\n    \"Keep a reusable water bottle nearby throughout the day.\",\n    \"Pair daily routines, such as meals, with a glass of water.\",\n    \"Monitor daily fluid intake using a simple tracking method.\"\n  ]\n}",
+          "attempt_latency_ms": 2770.6273999938276,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 2770.6577999924775,
+      "requested_at_utc": "2026-10-16T09:29:34.453398+00:00"
+    },
+    "rule": {
+      "category": "hydration_focus",
+      "latency_ms": 0.001400010660290718
+    }
+  },
+  {
+    "case_id": "case-008",
+    "features": {
+      "bmi": 20.32,
+      "age": 23,
+      "activity_score": 3,
+      "sleep_hours": 8.03,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 0.693,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 58.0,
+      "exercise_adequacy": 1,
+      "steps_ratio": 0.798,
+      "calorie_ratio": 1.087,
+      "stress_level": 2,
+      "goal_code": 5,
+      "gender_code": 0
+    },
+    "reference": "balanced_wellness",
+    "ml": {
+      "category": "balanced_wellness",
+      "latency_ms": 27.34139998210594
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "balanced_wellness",
+        "rationale": "Evaluating the rules in order: sleep_hours (8.03) is not < 6, hydration_ratio (0.693) is not < 0.6, exercise_minutes (58.0) is not < 12, BMI (20.32) is within the healthy range [18.5, 25), and goal_code (5) is not in [1, 2, 4]. Therefore, the profile defaults to balanced wellness.",
+        "suggestions": [
+          "Maintain your current healthy routines and balanced daily habits.",
+          "Continue listening to your body regarding rest and activity.",
+          "Keep up with your consistent daily lifestyle patterns."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 173,
+        "totalTokenCount": 616,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "ge7RaoGYJ8OJg8UP16WOkQs",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"balanced_wellness\",\n  \"rationale\": \"Evaluating the rules in order: sleep_hours (8.03) is not < 6, hydration_ratio (0.693) is not < 0.6, exercise_minutes (58.0) is not < 12, BMI (20.32) is within the healthy range [18.5, 25), and goal_code (5) is not in [1, 2, 4]. Therefore, the profile defaults to balanced wellness.\",\n  \"suggestions\": [\n    \"Maintain your current healthy routines and balanced daily habits.\",\n    \"Continue listening to your body regarding rest and activity.\",\n    \"Keep up with your consistent daily lifestyle patterns.\"\n  ]\n}",
+      "attempt_latency_ms": 11142.452700005379,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "balanced_wellness",
+            "rationale": "Evaluating the rules in order: sleep_hours (8.03) is not < 6, hydration_ratio (0.693) is not < 0.6, exercise_minutes (58.0) is not < 12, BMI (20.32) is within the healthy range [18.5, 25), and goal_code (5) is not in [1, 2, 4]. Therefore, the profile defaults to balanced wellness.",
+            "suggestions": [
+              "Maintain your current healthy routines and balanced daily habits.",
+              "Continue listening to your body regarding rest and activity.",
+              "Keep up with your consistent daily lifestyle patterns."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 443,
+            "candidatesTokenCount": 173,
+            "totalTokenCount": 616,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 443
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "ge7RaoGYJ8OJg8UP16WOkQs",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"balanced_wellness\",\n  \"rationale\": \"Evaluating the rules in order: sleep_hours (8.03) is not < 6, hydration_ratio (0.693) is not < 0.6, exercise_minutes (58.0) is not < 12, BMI (20.32) is within the healthy range [18.5, 25), and goal_code (5) is not in [1, 2, 4]. Therefore, the profile defaults to balanced wellness.\",\n  \"suggestions\": [\n    \"Maintain your current healthy routines and balanced daily habits.\",\n    \"Continue listening to your body regarding rest and activity.\",\n    \"Keep up with your consistent daily lifestyle patterns.\"\n  ]\n}",
+          "attempt_latency_ms": 11142.452700005379,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 11142.498500004876,
+      "requested_at_utc": "2026-10-16T09:29:38.252189+00:00"
+    },
+    "rule": {
+      "category": "balanced_wellness",
+      "latency_ms": 0.0025999906938523054
+    }
+  },
+  {
+    "case_id": "case-009",
+    "features": {
+      "bmi": 14.34,
+      "age": 17,
+      "activity_score": 2,
+      "sleep_hours": 8.96,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 0.311,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 40.0,
+      "exercise_adequacy": 1,
+      "steps_ratio": 0.997,
+      "calorie_ratio": 1.187,
+      "stress_level": 4,
+      "goal_code": 6,
+      "gender_code": 0
+    },
+    "reference": "fitness_improvement",
+    "ml": {
+      "category": "hydration_focus",
+      "latency_ms": 48.287400015397
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "hydration_focus",
+        "rationale": "Evaluating the rules sequentially: sleep_hours (8.96) is not < 6, but hydration_ratio (0.311) is < 0.6. Therefore, the applicable category according to the task definition is hydration_focus.",
+        "suggestions": [
+          "Keep a reusable water bottle nearby throughout the day.",
+          "Pair daily routines, such as meals, with drinking fluids.",
+          "Monitor daily fluid intake consistently to build steady habits."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 123,
+        "totalTokenCount": 566,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "je7RaqStMYLbjuMP1euJ8Qs",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Evaluating the rules sequentially: sleep_hours (8.96) is not < 6, but hydration_ratio (0.311) is < 0.6. Therefore, the applicable category according to the task definition is hydration_focus.\",\n  \"suggestions\": [\n    \"Keep a reusable water bottle nearby throughout the day.\",\n    \"Pair daily routines, such as meals, with drinking fluids.\",\n    \"Monitor daily fluid intake consistently to build steady habits.\"\n  ]\n}",
+      "attempt_latency_ms": 3340.730399999302,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "hydration_focus",
+            "rationale": "Evaluating the rules sequentially: sleep_hours (8.96) is not < 6, but hydration_ratio (0.311) is < 0.6. Therefore, the applicable category according to the task definition is hydration_focus.",
+            "suggestions": [
+              "Keep a reusable water bottle nearby throughout the day.",
+              "Pair daily routines, such as meals, with drinking fluids.",
+              "Monitor daily fluid intake consistently to build steady habits."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 443,
+            "candidatesTokenCount": 123,
+            "totalTokenCount": 566,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 443
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "je7RaqStMYLbjuMP1euJ8Qs",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Evaluating the rules sequentially: sleep_hours (8.96) is not < 6, but hydration_ratio (0.311) is < 0.6. Therefore, the applicable category according to the task definition is hydration_focus.\",\n  \"suggestions\": [\n    \"Keep a reusable water bottle nearby throughout the day.\",\n    \"Pair daily routines, such as meals, with drinking fluids.\",\n    \"Monitor daily fluid intake consistently to build steady habits.\"\n  ]\n}",
+          "attempt_latency_ms": 3340.730399999302,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 3340.757800004212,
+      "requested_at_utc": "2026-10-16T09:29:50.444206+00:00"
+    },
+    "rule": {
+      "category": "hydration_focus",
+      "latency_ms": 0.0021999876480549574
+    }
+  },
+  {
+    "case_id": "case-010",
+    "features": {
+      "bmi": 27.48,
+      "age": 34,
+      "activity_score": 3,
+      "sleep_hours": 8.91,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 0.739,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 8.0,
+      "exercise_adequacy": 0,
+      "steps_ratio": 0.372,
+      "calorie_ratio": 1.132,
+      "stress_level": 4,
+      "goal_code": 3,
+      "gender_code": 1
+    },
+    "reference": "activity_focus",
+    "ml": {
+      "category": "activity_focus",
+      "latency_ms": 30.236299993703142
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "activity_focus",
+        "rationale": "Sleep hours (8.91) is not less than 6. Hydration ratio (0.739) is not less than 0.6. However, exercise minutes (8.0) is less than 12 and steps ratio (0.372) is less than 0.5625. Therefore, the activity_focus rule is triggered.",
+        "suggestions": [
+          "Consider incorporating short walking breaks throughout the day.",
+          "Explore enjoyable physical activities to build daily consistency.",
+          "Focus on gradual increases in daily movement rather than intensity."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 442,
+        "candidatesTokenCount": 147,
+        "totalTokenCount": 589,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 442
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "ku7RavC0CYGrjuMPjNqq-As",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"activity_focus\",\n  \"rationale\": \"Sleep hours (8.91) is not less than 6. Hydration ratio (0.739) is not less than 0.6. However, exercise minutes (8.0) is less than 12 and steps ratio (0.372) is less than 0.5625. Therefore, the activity_focus rule is triggered.\",\n  \"suggestions\": [\n    \"Consider incorporating short walking breaks throughout the day.\",\n    \"Explore enjoyable physical activities to build daily consistency.\",\n    \"Focus on gradual increases in daily movement rather than intensity.\"\n  ]\n}",
+      "attempt_latency_ms": 4491.8675999797415,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "activity_focus",
+            "rationale": "Sleep hours (8.91) is not less than 6. Hydration ratio (0.739) is not less than 0.6. However, exercise minutes (8.0) is less than 12 and steps ratio (0.372) is less than 0.5625. Therefore, the activity_focus rule is triggered.",
+            "suggestions": [
+              "Consider incorporating short walking breaks throughout the day.",
+              "Explore enjoyable physical activities to build daily consistency.",
+              "Focus on gradual increases in daily movement rather than intensity."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 442,
+            "candidatesTokenCount": 147,
+            "totalTokenCount": 589,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 442
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "ku7RavC0CYGrjuMPjNqq-As",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"activity_focus\",\n  \"rationale\": \"Sleep hours (8.91) is not less than 6. Hydration ratio (0.739) is not less than 0.6. However, exercise minutes (8.0) is less than 12 and steps ratio (0.372) is less than 0.5625. Therefore, the activity_focus rule is triggered.\",\n  \"suggestions\": [\n    \"Consider incorporating short walking breaks throughout the day.\",\n    \"Explore enjoyable physical activities to build daily consistency.\",\n    \"Focus on gradual increases in daily movement rather than intensity.\"\n  ]\n}",
+          "attempt_latency_ms": 4491.8675999797415,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 4491.9157000258565,
+      "requested_at_utc": "2026-10-16T09:29:54.816439+00:00"
+    },
+    "rule": {
+      "category": "activity_focus",
+      "latency_ms": 0.0035999983083456755
+    }
+  },
+  {
+    "case_id": "case-013",
+    "features": {
+      "bmi": 40.76,
+      "age": 18,
+      "activity_score": 2,
+      "sleep_hours": 5.6,
+      "sleep_adequacy": 0,
+      "hydration_ratio": 0.933,
+      "hydration_adequacy": 1,
+      "exercise_minutes": 39.0,
+      "exercise_adequacy": 1,
+      "steps_ratio": 1.371,
+      "calorie_ratio": 1.041,
+      "stress_level": 2,
+      "goal_code": 2,
+      "gender_code": 2
+    },
+    "reference": "sleep_focus",
+    "ml": {
+      "category": "sleep_focus",
+      "latency_ms": 28.882899991003796
+    },
+    "llm": {
+      "status": "ok",
+      "output": {
+        "category": "sleep_focus",
+        "rationale": "Following the ordered task definition, sleep_hours is 5.6, which is strictly less than 6. This immediately triggers the first rule condition, classifying the profile into sleep_focus regardless of other metrics such as bmi or hydration.",
+        "suggestions": [
+          "Establish a consistent evening wind-down routine to support restful nights.",
+          "Minimize exposure to bright screens in the hour before bedtime.",
+          "Keep the sleeping environment cool, dark, and quiet."
+        ]
+      },
+      "safety_flags": [],
+      "human_safety_review": "pending",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 442,
+        "candidatesTokenCount": 121,
+        "totalTokenCount": 563,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 442
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "ou7RapuuKOzZjuMPlZ23sAU",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"sleep_focus\",\n  \"rationale\": \"Following the ordered task definition, sleep_hours is 5.6, which is strictly less than 6. This immediately triggers the first rule condition, classifying the profile into sleep_focus regardless of other metrics such as bmi or hydration.\",\n  \"suggestions\": [\n    \"Establish a consistent evening wind-down routine to support restful nights.\",\n    \"Minimize exposure to bright screens in the hour before bedtime.\",\n    \"Keep the sleeping environment cool, dark, and quiet.\"\n  ]\n}",
+      "attempt_latency_ms": 2750.596099998802,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "ok",
+          "output": {
+            "category": "sleep_focus",
+            "rationale": "Following the ordered task definition, sleep_hours is 5.6, which is strictly less than 6. This immediately triggers the first rule condition, classifying the profile into sleep_focus regardless of other metrics such as bmi or hydration.",
+            "suggestions": [
+              "Establish a consistent evening wind-down routine to support restful nights.",
+              "Minimize exposure to bright screens in the hour before bedtime.",
+              "Keep the sleeping environment cool, dark, and quiet."
+            ]
+          },
+          "safety_flags": [],
+          "human_safety_review": "pending",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 442,
+            "candidatesTokenCount": 121,
+            "totalTokenCount": 563,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 442
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "ou7RapuuKOzZjuMPlZ23sAU",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"sleep_focus\",\n  \"rationale\": \"Following the ordered task definition, sleep_hours is 5.6, which is strictly less than 6. This immediately triggers the first rule condition, classifying the profile into sleep_focus regardless of other metrics such as bmi or hydration.\",\n  \"suggestions\": [\n    \"Establish a consistent evening wind-down routine to support restful nights.\",\n    \"Minimize exposure to bright screens in the hour before bedtime.\",\n    \"Keep the sleeping environment cool, dark, and quiet.\"\n  ]\n}",
+          "attempt_latency_ms": 2750.596099998802,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 2750.628500012681,
+      "requested_at_utc": "2026-10-16T09:30:11.328396+00:00"
+    },
+    "rule": {
+      "category": "sleep_focus",
+      "latency_ms": 0.0016999838408082724
+    }
+  },
+  {
+    "case_id": "case-032",
+    "features": {
+      "bmi": 21.92,
+      "age": 50,
+      "activity_score": 3,
+      "sleep_hours": 7.83,
+      "sleep_adequacy": 1,
+      "hydration_ratio": 0.701,
+      "hydration_adequacy": 0,
+      "exercise_minutes": 15.0,
+      "exercise_adequacy": 0,
+      "steps_ratio": 0.436,
+      "calorie_ratio": 0.769,
+      "stress_level": 2,
+      "goal_code": 0,
+      "gender_code": 1
+    },
+    "reference": "balanced_wellness",
+    "ml": {
+      "category": "balanced_wellness",
+      "latency_ms": 135.86380000924692
+    },
+    "llm": {
+      "status": "invalid_output",
+      "model_version": "gemini-3.5-flash-lite",
+      "usage": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 801,
+        "totalTokenCount": 1244,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "http_status": 200,
+      "response_id": "lO_RavORG_bd4-EPiZPa4Ac",
+      "prompt_feedback": null,
+      "finish_reason": "STOP",
+      "provider_safety_ratings": null,
+      "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Sleep hours are sufficient at 7.83 (>= 6). However, the hydration ratio is 0.701, which is above 0.6 in the condition check? Wait, let's re-verify the rule: 'otherwise hydration_ratio < .6 -> hydration_focus'. Here hydration_ratio is 0.701, so it is NOT < 0.6. Let's check next: 'otherwise exercise_minutes < 12 and steps_ratio < .5625 -> activity_focus'. Exercise minutes is 15.0 (not < 12). Next: 'otherwise bmi >= 25 or bmi < 18.5 -> weight_management'. BMI is 21.92, so this does not trigger. Next: 'otherwise goal_code in [1,2,4] -> fitness_improvement'. Goal code is 0 (weight_loss), so this does not trigger. Finally: 'otherwise balanced_wellness'. Wait, why did hydration_focus fail? Let me re-read the prompt logic carefully: sleep_hours < 6 (7.83 -> false). hydration_ratio < .6 (0.701 < 0.6 -> false). exercise_minutes < 12 and steps_ratio < .5625 (15.0 < 12 -> false). bmi >= 25 or bmi < 18.5 (21.92 -> false). goal_code in [1,2,4] (0 -> false). balanced_wellness. Wait, let me re-read hydration_ratio: 0.701. Is it < 0.6? No. Wait, let me check the prompt's rule: 'otherwise hydration_ratio < .6 -> hydration_focus'. Wait, if hydration_ratio is 0.701, it goes to the next rule. Let me re-read the features carefully: hydration_adequacy: 0, hydration_ratio: 0.701. Wait, maybe my evaluation of hydration_ratio < 0.6 is correct (0.701 is not < 0.6). Thus, it should fall through to balanced_wellness? Wait! Let me re-read the input and rules. Ah, wait, could hydration_ratio be interpreted differently? No, 0.701 is greater than 0.6. Let me check exercise_minutes: 15.0, not < 12. BMI: 21.92, neither >= 25 nor < 18.5. Goal code: 0, not in [1, 2, 4]. Therefore, it falls into balanced_wellness. Wait, let me double check if I missed any condition. Let's list them: 1) sleep_hours < 6 (7.83 < 6 -> false). 2) hydration_ratio < .6 (0.701 < 0.6 -> false). 3) exercise_minutes < 12 and steps_ratio < .5625 (15 < 12 is false). 4) bmi >= 25 or bmi < 18.5 (21.92 is false). 5) goal_code in [1,2,4] (0 is false). 6) balanced_wellness. Therefore the category is balanced_wellness.\",\n  \"suggestions\": [\n    \"Maintain consistent daily routines to support overall wellness.\",\n    \"Focus on maintaining a balanced and varied daily routine.\",\n    \"Continue monitoring personal well-being indicators regularly.\"\n  ]\n}",
+      "attempt_latency_ms": 5583.931500004837,
+      "attempt_number": 1,
+      "attempts": [
+        {
+          "status": "invalid_output",
+          "model_version": "gemini-3.5-flash-lite",
+          "usage": {
+            "promptTokenCount": 443,
+            "candidatesTokenCount": 801,
+            "totalTokenCount": 1244,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 443
+              }
+            ],
+            "serviceTier": "standard"
+          },
+          "http_status": 200,
+          "response_id": "lO_RavORG_bd4-EPiZPa4Ac",
+          "prompt_feedback": null,
+          "finish_reason": "STOP",
+          "provider_safety_ratings": null,
+          "raw_output": "{\n  \"category\": \"hydration_focus\",\n  \"rationale\": \"Sleep hours are sufficient at 7.83 (>= 6). However, the hydration ratio is 0.701, which is above 0.6 in the condition check? Wait, let's re-verify the rule: 'otherwise hydration_ratio < .6 -> hydration_focus'. Here hydration_ratio is 0.701, so it is NOT < 0.6. Let's check next: 'otherwise exercise_minutes < 12 and steps_ratio < .5625 -> activity_focus'. Exercise minutes is 15.0 (not < 12). Next: 'otherwise bmi >= 25 or bmi < 18.5 -> weight_management'. BMI is 21.92, so this does not trigger. Next: 'otherwise goal_code in [1,2,4] -> fitness_improvement'. Goal code is 0 (weight_loss), so this does not trigger. Finally: 'otherwise balanced_wellness'. Wait, why did hydration_focus fail? Let me re-read the prompt logic carefully: sleep_hours < 6 (7.83 -> false). hydration_ratio < .6 (0.701 < 0.6 -> false). exercise_minutes < 12 and steps_ratio < .5625 (15.0 < 12 -> false). bmi >= 25 or bmi < 18.5 (21.92 -> false). goal_code in [1,2,4] (0 -> false). balanced_wellness. Wait, let me re-read hydration_ratio: 0.701. Is it < 0.6? No. Wait, let me check the prompt's rule: 'otherwise hydration_ratio < .6 -> hydration_focus'. Wait, if hydration_ratio is 0.701, it goes to the next rule. Let me re-read the features carefully: hydration_adequacy: 0, hydration_ratio: 0.701. Wait, maybe my evaluation of hydration_ratio < 0.6 is correct (0.701 is not < 0.6). Thus, it should fall through to balanced_wellness? Wait! Let me re-read the input and rules. Ah, wait, could hydration_ratio be interpreted differently? No, 0.701 is greater than 0.6. Let me check exercise_minutes: 15.0, not < 12. BMI: 21.92, neither >= 25 nor < 18.5. Goal code: 0, not in [1, 2, 4]. Therefore, it falls into balanced_wellness. Wait, let me double check if I missed any condition. Let's list them: 1) sleep_hours < 6 (7.83 < 6 -> false). 2) hydration_ratio < .6 (0.701 < 0.6 -> false). 3) exercise_minutes < 12 and steps_ratio < .5625 (15 < 12 is false). 4) bmi >= 25 or bmi < 18.5 (21.92 is false). 5) goal_code in [1,2,4] (0 is false). 6) balanced_wellness. Therefore the category is balanced_wellness.\",\n  \"suggestions\": [\n    \"Maintain consistent daily routines to support overall wellness.\",\n    \"Focus on maintaining a balanced and varied daily routine.\",\n    \"Continue monitoring personal well-being indicators regularly.\"\n  ]\n}",
+          "attempt_latency_ms": 5583.931500004837,
+          "attempt_number": 1
+        }
+      ],
+      "latency_ms": 5583.975899993675,
+      "requested_at_utc": "2026-10-16T09:34:13.125839+00:00"
+    },
+    "rule": {
+      "category": "balanced_wellness",
+      "latency_ms": 0.0041000021155923605
+    }
+  }
+]

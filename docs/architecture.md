@@ -12,7 +12,7 @@ Express (Node.js)
   - health metrics (BMI, BMR, TDEE, macros, water)
   - rule engine (safety first)
   - content-based scoring
-  - optional AI wording
+  - optional AI narrative recommendations and wording
         |
         +---- MongoDB (Mongoose)
         |
@@ -29,7 +29,10 @@ FastAPI (ai-ml/)
 3. Health-metric rules
 4. ML focus category (bounded bonus, default cap 0.15)
 5. Content-based ranking
-6. Optional AI wording only
+6. Optional AI narrative recommendations and wording. The actual service can return
+   generated nutrition/activity/wellness items after output filtering; this is not
+   merely rewording. These filters do not establish clinical safety. See the
+   [ML experiment log](CEP_ML_EXPERIMENT_LOG.md) for verified limits.
 
 If FastAPI is down, `ML_ENABLED=false`, the model file is missing, or prediction
 fails, Express continues with rules + content scoring (`source: rules_only`).

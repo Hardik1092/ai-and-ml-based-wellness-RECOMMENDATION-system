@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "name": "wellness-frontend",
+  "problems": [
+    "extraneous: wellness-system@1.0.0 C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\frontend\\node_modules\\wellness-system"
+  ],
+  "dependencies": {
+    "@vitejs/plugin-react": {
+      "version": "4.7.0",
+      "resolved": "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-4.7.0.tgz",
+      "overridden": false
+    },
+    "chart.js": {
+      "version": "4.5.1",
+      "resolved": "https://registry.npmjs.org/chart.js/-/chart.js-4.5.1.tgz",
+      "overridden": false
+    },
+    "lucide-react": {
+      "version": "1.52.0",
+      "resolved": "https://registry.npmjs.org/lucide-react/-/lucide-react-1.52.0.tgz",
+      "overridden": false
+    },
+    "react-chartjs-2": {
+      "version": "5.3.1",
+      "resolved": "https://registry.npmjs.org/react-chartjs-2/-/react-chartjs-2-5.3.1.tgz",
+      "overridden": false
+    },
+    "react-dom": {
+      "version": "18.3.1",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz",
+      "overridden": false
+    },
+    "react-router-dom": {
+      "version": "6.30.6",
+      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.30.6.tgz",
+      "overridden": false
+    },
+    "react": {
+      "version": "18.3.1",
+      "resolved": "https://registry.npmjs.org/react/-/react-18.3.1.tgz",
+      "overridden": false
+    },
+    "vite": {
+      "version": "5.4.21",
+      "resolved": "https://registry.npmjs.org/vite/-/vite-5.4.21.tgz",
+      "overridden": false
+    },
+    "wellness-system": {
+      "version": "1.0.0",
+      "resolved": "file:../..",
+      "overridden": false,
+      "extraneous": true,
+      "problems": [
+        "extraneous: wellness-system@1.0.0 C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\frontend\\node_modules\\wellness-system"
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "original_files": {
+    "ai-ml\\models\\feature_metadata.json": true,
+    "ai-ml\\models\\model.pkl": true,
+    "ai-ml\\models\\random_forest_model.joblib": true,
+    "ai-ml\\data\\cep_ml_features_20000.csv": true,
+    "ai-ml\\data\\sample_training_data.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_ml_features_20000.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_ml_llm_benchmark_cases_200.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_synthetic_wellness_20000.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_synthetic_wellness_20000.metadata.json": true,
+    "CEP_Synthetic_Data_20000\\DATA_VALIDATION_REPORT.json": true,
+    "CEP_Synthetic_Data_20000\\ML_LLM_COMPARISON_PLAN.md": true,
+    "CEP_Synthetic_Data_20000\\ML_TRAINING_REPORT.md": true,
+    "CEP_Synthetic_Data_20000\\README_DATA.md": true
+  },
+  "configuration": {
+    "backend\\.env": true,
+    "ai-ml\\.env": true,
+    "backend\\src\\config\\env.js": true,
+    "ai-ml\\app\\config.py": true
+  },
+  "candidate_model_unchanged": true,
+  "candidate_metadata_unchanged": true
+}

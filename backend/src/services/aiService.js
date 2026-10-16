@@ -72,6 +72,9 @@ async function openaiComplete(apiKey, prompt, model, systemPrompt = SYSTEM_PROMP
     }),
   });
   const data = await res.json();
+  if (!res.ok || !data.choices || !data.choices[0]?.message?.content) {
+    throw new Error(data?.error?.message || 'OpenAI API returned an invalid response.');
+  }
   return data.choices[0].message.content.trim();
 }
 
@@ -91,17 +94,27 @@ async function openaiCompleteStructured(apiKey, prompt) {
     }),
   });
   const data = await res.json();
+  if (!res.ok || !data.choices || !data.choices[0]?.message?.content) {
+    throw new Error(data?.error?.message || 'OpenAI API returned an invalid response.');
+  }
   return data.choices[0].message.content.trim();
 }
 
 async function geminiComplete(apiKey, prompt, systemPrompt = SYSTEM_PROMPT) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  const model = env.geminiModel || 'gemini-1.5-flash';
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
   const res = await timedFetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-goog-api-key': apiKey,
+    },
     body: JSON.stringify({ contents: [{ parts: [{ text: `${systemPrompt}\n\n${prompt}` }] }] }),
   });
   const data = await res.json();
+  if (!res.ok || !data.candidates || !data.candidates[0]?.content?.parts?.[0]?.text) {
+    throw new Error(data?.error?.message || 'Gemini API returned an invalid response.');
+  }
   return data.candidates[0].content.parts[0].text.trim();
 }
 
@@ -338,6 +351,14 @@ async function generateWellnessRecommendations(profile, metrics, summary) {
 }
 
 async function ask(message, context) {
+  // Conservative English keyword guard; not a triage or diagnostic system.
+  if (/chest (pain|pressure|tightness)|can(?:not|'t) breathe|severe (difficulty breathing|bleeding)|coughing up blood|unconscious/i.test(message)) {
+    return {
+      available: true,
+      reply: 'If these symptoms are happening now, seek urgent medical help. For severe breathing difficulty, persistent chest pain, unconsciousness or severe bleeding, contact your local emergency service immediately. This wellness app cannot assess emergencies.',
+      provider: 'safety_rules',
+    };
+  }
   const provider = getProvider();
   if (!provider) {
     return { available: false, reply: NOT_CONFIGURED_MESSAGE, provider: null };

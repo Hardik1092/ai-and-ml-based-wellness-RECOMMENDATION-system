@@ -1,0 +1,44 @@
+{
+  "dataset_name": "CEP synthetic wellness dataset",
+  "n_samples": 20000,
+  "seed": 42,
+  "synthetic": true,
+  "label_source": "Rule-based labels with configured label noise; not human-annotated outcomes",
+  "features": [
+    "bmi",
+    "age",
+    "activity_score",
+    "sleep_hours",
+    "sleep_adequacy",
+    "hydration_ratio",
+    "hydration_adequacy",
+    "exercise_minutes",
+    "exercise_adequacy",
+    "steps_ratio",
+    "calorie_ratio",
+    "stress_level",
+    "goal_code",
+    "gender_code"
+  ],
+  "target": "wellness_category",
+  "class_distribution": {
+    "activity_focus": 850,
+    "balanced_wellness": 2183,
+    "fitness_improvement": 1755,
+    "hydration_focus": 3326,
+    "sleep_focus": 5200,
+    "weight_management": 6686
+  },
+  "raw_csv": "cep_synthetic_wellness_20000.csv",
+  "model_features_csv": "cep_ml_features_20000.csv",
+  "intended_use": [
+    "development",
+    "pipeline testing",
+    "ML-vs-LLM benchmark case generation"
+  ],
+  "limitations": [
+    "Synthetic distributions may not represent real users.",
+    "Labels inherit assumptions and biases from label_row().",
+    "Metrics measured against these labels are not clinical or real-world validation."
+  ]
+}

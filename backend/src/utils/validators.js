@@ -69,7 +69,7 @@ function validateNumber(value, field, required = true) {
     return null;
   }
   const number = Number(value);
-  if (Number.isNaN(number)) {
+  if (typeof value === 'boolean' || typeof value === 'object' || !Number.isFinite(number)) {
     throw new ValidationError(`${field.replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase())} must be a number.`);
   }
   if (BOUNDS[field]) {

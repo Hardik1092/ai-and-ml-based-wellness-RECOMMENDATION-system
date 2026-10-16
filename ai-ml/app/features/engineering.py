@@ -37,7 +37,8 @@ def build_feature_row(raw: dict) -> dict:
     hydration_ratio = (raw.get("water_ml", 0) or 0) / water_target
     exercise_minutes = raw.get("exercise_minutes", 0) or 0
     steps_ratio = (raw.get("steps", 0) or 0) / STEPS_TARGET
-    calorie_ratio = (raw.get("calories") or calorie_target) / calorie_target
+    calories = raw.get("calories")
+    calorie_ratio = (calorie_target if calories is None else calories) / calorie_target
     return {
         "bmi": round(float(raw["bmi"]), 2),
         "age": int(raw["age"]),

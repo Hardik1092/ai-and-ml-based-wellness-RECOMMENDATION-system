@@ -1,0 +1,28 @@
+{
+  "ml_tests": {
+    "command": "npm run test:ml",
+    "exit_code": 0,
+    "passed": 34
+  },
+  "backend_tests": {
+    "command": "npm test",
+    "exit_code": 0,
+    "suites": 6,
+    "passed": 51
+  },
+  "frontend_build": {
+    "command": "npm run build",
+    "exit_code": 0
+  },
+  "feature_parity": {
+    "rows": 20000,
+    "mismatch_cells": 0
+  },
+  "original_files_preserved": 13,
+  "llm": {
+    "requested_model": "gemini-1.5-flash",
+    "http_status": 404,
+    "usable_outputs": 0,
+    "pending_cases": 199
+  }
+}

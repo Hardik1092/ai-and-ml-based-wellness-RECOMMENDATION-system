@@ -1,0 +1,51 @@
+{
+  "dataset": "CEP synthetic wellness dataset",
+  "synthetic": true,
+  "seed": 42,
+  "raw_shape": [
+    20000,
+    15
+  ],
+  "features_shape": [
+    20000,
+    15
+  ],
+  "benchmark_shape": [
+    200,
+    15
+  ],
+  "raw_missing_cells": 0,
+  "features_missing_cells": 0,
+  "benchmark_missing_cells": 0,
+  "raw_duplicate_rows": 0,
+  "features_duplicate_rows": 0,
+  "label_distribution": {
+    "activity_focus": 850,
+    "balanced_wellness": 2183,
+    "fitness_improvement": 1755,
+    "hydration_focus": 3326,
+    "sleep_focus": 5200,
+    "weight_management": 6686
+  },
+  "label_percent": {
+    "activity_focus": 4.25,
+    "balanced_wellness": 10.91,
+    "fitness_improvement": 8.77,
+    "hydration_focus": 16.63,
+    "sleep_focus": 26.0,
+    "weight_management": 33.43
+  },
+  "age_min": 16,
+  "age_max": 69,
+  "bmi_min": 10.59,
+  "bmi_max": 55.1,
+  "sleep_min": 3.0,
+  "sleep_max": 10.0,
+  "steps_min": 300,
+  "steps_max": 19783,
+  "limitations": [
+    "Synthetic records generated from project rules; not real people or clinical evidence.",
+    "Labels are rule-generated with configured noise.",
+    "The benchmark CSV contains 200 synthetic cases and is intended for side-by-side ML/LLM evaluation, not an independent real-world validation set."
+  ]
+}

@@ -3,11 +3,14 @@ const { getProfileOrNone } = require('./profileService');
 const { buildContext } = require('./recommendationService');
 const { calculateWellnessScore, getLogs } = require('./wellnessService');
 const { DISCLAIMER } = require('../utils/constants');
-const { ValidationError } = require('../utils/errors');
+const { NotFoundError, ValidationError } = require('../utils/errors');
 const { todayIso } = require('../utils/validators');
 
 async function getDashboard(userId, range = 7) {
   const user = await User.findById(userId);
+  if (!user) {
+    throw new NotFoundError('User account not found.');
+  }
   const profileDoc = await getProfileOrNone(userId);
   if (!profileDoc) {
     return {

@@ -36,7 +36,10 @@ async function fetchJson(path, { method = 'GET', body, timeoutMs } = {}) {
   try {
     const res = await fetch(`${env.mlServiceUrl}${path}`, {
       method,
-      headers: body ? { 'Content-Type': 'application/json' } : undefined,
+      headers: {
+        ...(body ? { 'Content-Type': 'application/json' } : {}),
+        ...(path === '/retrain' && env.mlAdminToken ? { 'X-ML-Admin-Token': env.mlAdminToken } : {}),
+      },
       body: body ? JSON.stringify(body) : undefined,
       signal: controller.signal,
     });

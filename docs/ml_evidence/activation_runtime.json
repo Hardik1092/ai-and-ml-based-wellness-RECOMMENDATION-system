@@ -1,0 +1,37 @@
+{
+  "pid": 1824,
+  "loaded_at_utc": "2026-10-16T13:50:37.472157+00:00",
+  "resolved_model_path": "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\models\\cep-20k-v1\\model.pkl",
+  "resolved_metadata_path": "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\models\\cep-20k-v1\\feature_metadata.json",
+  "model_sha256": "4d131cc7cbd2b8350cc1338adf8cc2f6447a6f3b889feb18b8e4fe7b0ef7729e",
+  "actual_model_type": "HistGradientBoostingClassifier",
+  "features": [
+    "bmi",
+    "age",
+    "activity_score",
+    "sleep_hours",
+    "sleep_adequacy",
+    "hydration_ratio",
+    "hydration_adequacy",
+    "exercise_minutes",
+    "exercise_adequacy",
+    "steps_ratio",
+    "calorie_ratio",
+    "stress_level",
+    "goal_code",
+    "gender_code"
+  ],
+  "classes": [
+    "activity_focus",
+    "balanced_wellness",
+    "fitness_improvement",
+    "hydration_focus",
+    "sleep_focus",
+    "weight_management"
+  ],
+  "host": "127.0.0.1",
+  "port": 8000,
+  "same_process_cached_object": true,
+  "workers": 1,
+  "reload": false
+}

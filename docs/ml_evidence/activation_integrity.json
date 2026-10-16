@@ -1,0 +1,27 @@
+{
+  "original_files_unchanged": {
+    "ai-ml\\models\\feature_metadata.json": true,
+    "ai-ml\\models\\model.pkl": true,
+    "ai-ml\\models\\random_forest_model.joblib": true,
+    "ai-ml\\data\\cep_ml_features_20000.csv": true,
+    "ai-ml\\data\\sample_training_data.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_ml_features_20000.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_ml_llm_benchmark_cases_200.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_synthetic_wellness_20000.csv": true,
+    "CEP_Synthetic_Data_20000\\cep_synthetic_wellness_20000.metadata.json": true,
+    "CEP_Synthetic_Data_20000\\DATA_VALIDATION_REPORT.json": true,
+    "CEP_Synthetic_Data_20000\\ML_LLM_COMPARISON_PLAN.md": true,
+    "CEP_Synthetic_Data_20000\\ML_TRAINING_REPORT.md": true,
+    "CEP_Synthetic_Data_20000\\README_DATA.md": true
+  },
+  "other_configuration_unchanged": {
+    "backend\\.env": true,
+    "backend\\src\\config\\env.js": true,
+    "ai-ml\\app\\config.py": true
+  },
+  "only_two_env_setting_changes": true,
+  "rollback_reconstructs_original_env_bytes": true,
+  "active_env_sha256": "e8c327889df5aca921a8048e7db18742a320df8b1cb94151e032ea370c54d460",
+  "candidate_sha256": "4d131cc7cbd2b8350cc1338adf8cc2f6447a6f3b889feb18b8e4fe7b0ef7729e",
+  "listener_matches_attested_pid": true
+}

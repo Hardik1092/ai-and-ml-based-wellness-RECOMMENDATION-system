@@ -1,0 +1,27 @@
+{
+  "status": "provider_error",
+  "http_status": 404,
+  "error": {
+    "code": 404,
+    "message": "This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).",
+    "status": "NOT_FOUND"
+  },
+  "latency_ms": 684.4900000141934,
+  "profile_seed": 91821,
+  "features": {
+    "bmi": 28.99,
+    "age": 55.0,
+    "activity_score": 2.0,
+    "sleep_hours": 7.9,
+    "sleep_adequacy": 1.0,
+    "hydration_ratio": 0.813,
+    "hydration_adequacy": 0.0,
+    "exercise_minutes": 46.0,
+    "exercise_adequacy": 1.0,
+    "steps_ratio": 0.824,
+    "calorie_ratio": 0.76,
+    "stress_level": 4.0,
+    "goal_code": 4.0,
+    "gender_code": 1.0
+  }
+}

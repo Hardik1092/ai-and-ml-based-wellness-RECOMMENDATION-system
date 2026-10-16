@@ -1,0 +1,9 @@
+{
+  "action": "activate",
+  "before_sha256": "e685b24d5243a70df06d9895c9f50e32ee7fbc002f1860e77122bd78715d173a",
+  "after_sha256": "e8c327889df5aca921a8048e7db18742a320df8b1cb94151e032ea370c54d460",
+  "settings": {
+    "MODEL_PATH": "models/cep-20k-v1/model.pkl",
+    "METADATA_PATH": "models/cep-20k-v1/feature_metadata.json"
+  }
+}

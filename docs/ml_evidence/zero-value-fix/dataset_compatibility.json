@@ -1,0 +1,10 @@
+{
+  "CEP_Synthetic_Data_20000/cep_synthetic_wellness_20000.csv": {
+    "rows": 20000,
+    "changed_feature_rows": 0
+  },
+  "CEP_Synthetic_Data_20000/cep_ml_llm_benchmark_cases_200.csv": {
+    "rows": 200,
+    "changed_feature_rows": 0
+  }
+}

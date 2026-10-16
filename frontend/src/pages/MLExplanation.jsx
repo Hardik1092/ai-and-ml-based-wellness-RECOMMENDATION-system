@@ -34,25 +34,25 @@ const PIPELINE_STEPS = [
   {
     step: '02',
     title: 'Data Preprocessing',
-    desc: 'Inputs are validated against clinical boundaries; logs are normalised and missing entries imputed safely.',
+    desc: 'Inputs are checked against application bounds; missing log entries use documented defaults.',
     icon: Sliders,
   },
   {
     step: '03',
     title: 'Feature Engineering',
-    desc: '14 biometric ratios are derived (sleep adequacy, hydration ratio, activity deficit, stress index).',
+    desc: '14 numeric features describe the profile, including ratios, indicators and category codes.',
     icon: Activity,
   },
   {
     step: '04',
-    title: 'Ensemble ML Inference',
-    desc: 'A trained 200-tree Random Forest classifies the optimal lifestyle focus category and calculates probabilities.',
+    title: 'ML Focus Classification',
+    desc: 'The configured model predicts a synthetic wellness focus category and model probabilities.',
     icon: Cpu,
   },
   {
     step: '05',
     title: 'Deterministic Safety Filter',
-    desc: 'Hard medical exclusion rules guarantee allergen elimination and clinical condition compliance.',
+    desc: 'Configured rules filter recorded preferences and exclusions; clinical safety is not established.',
     icon: ShieldCheck,
   },
   {
@@ -66,7 +66,7 @@ const PIPELINE_STEPS = [
 export default function MLExplanation() {
   const { data, error, loading, reload } = useApi(() => api.mlExplanation(), [])
 
-  if (loading) return <Loading label="Retrieving Random Forest model parameters & weights…" />
+  if (loading) return <Loading label="Retrieving model parameters and evaluation results…" />
   if (error) {
     return (
       <ErrorState
@@ -81,7 +81,7 @@ export default function MLExplanation() {
   // Model status checks
   const isOnline = Boolean(data?.service_online)
   const isLoaded = Boolean(data?.model_loaded || data?.model_type)
-  const isModelActive = Boolean(data?.model_available || (isOnline && isLoaded))
+  const isModelActive = Boolean(data?.model_available)
   const isFallbackActive = !isModelActive
 
   // Feature importances
@@ -127,7 +127,7 @@ export default function MLExplanation() {
         <div>
           <h1 className="page-title">How the Model Decides</h1>
           <p className="page-subtitle">
-            Understand how your wellness recommendations are generated with full algorithmic transparency and clinical safety guarantees.
+            See how your general wellness recommendations are generated. Synthetic-data results do not establish clinical validity.
           </p>
         </div>
 
@@ -161,11 +161,11 @@ export default function MLExplanation() {
             <AlertTriangle size={22} style={{ color: '#f59e0b', flexShrink: 0, marginTop: 2 }} />
             <div>
               <div style={{ fontWeight: 700, fontSize: '0.98rem', color: '#f59e0b', marginBottom: 4 }}>
-                Deterministic Clinical Engine Active
+                Rule-Based Recommendations Active
               </div>
               <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--ink-soft)', lineHeight: 1.5 }}>
                 {data?.fallback_reason || 'The recommendation engine is currently using the configured fallback rules.'}{' '}
-                Your plans remain 100% compliant with allergen exclusions, macronutrient guidelines, and clinical constraints.
+                Configured rules remain active. Check recommendations against your needs; they do not replace professional advice.
               </p>
             </div>
           </div>
@@ -184,21 +184,21 @@ export default function MLExplanation() {
         <Metric
           label="Test Accuracy"
           value={formatAccuracy()}
-          note="Held-out validation split"
+          note="Held-out synthetic test split"
           icon={Award}
           variant="emerald"
         />
         <Metric
           label="F1 Score"
           value={formatF1()}
-          note="Weighted macro across classes"
+          note="Weighted average across classes"
           icon={TrendingUp}
           variant="indigo"
         />
         <Metric
           label="Precision / Recall"
           value={formatPrecisionRecall()}
-          note="Balanced classification evaluation"
+          note="Weighted precision and recall"
           icon={Activity}
           variant="blue"
         />
@@ -209,7 +209,7 @@ export default function MLExplanation() {
       {/* Visual Recommendation Pipeline Architecture */}
       <Card
         title="Recommendation Pipeline Architecture"
-        sub="The multi-tiered flow combining machine learning with non-negotiable medical rules"
+        sub="The flow combining machine learning with configured wellness rules"
         icon={BrainCircuit}
       >
         <div className="ml-pipeline-grid">
@@ -241,7 +241,7 @@ export default function MLExplanation() {
       {/* Feature Importance Hierarchy */}
       <Card
         title="Feature Importance Hierarchy"
-        sub="Relative weighting assigned to each biometric variable by the trained ensemble forest"
+        sub="Global importance, when supported by the model; not an individual causal explanation"
         icon={Layers}
       >
         {importances.length > 0 ? (
@@ -282,7 +282,7 @@ export default function MLExplanation() {
           <EmptyState
             icon={Layers}
             title="Feature importance is currently unavailable for this model"
-            description="The machine learning service is running in fallback mode. Feature weight distributions will display once the trained ensemble model is active."
+            description="Some models do not expose impurity-based feature importances. Their absence does not mean prediction is unavailable."
           />
         )}
       </Card>
@@ -291,7 +291,7 @@ export default function MLExplanation() {
 
       {/* Current User Prediction & Inference */}
       <Card
-        title="Your Biometric Inference"
+        title="Your Wellness Focus Prediction"
         sub="Inferred primary focus category based on your 14 personal biometric parameters"
         icon={BrainCircuit}
       >
@@ -305,7 +305,7 @@ export default function MLExplanation() {
                   <span className="pill ok" style={{ textTransform: 'capitalize', margin: '0 6px', fontWeight: 700 }}>
                     {pretty(data.prediction.category_label || data.prediction.category)}
                   </span>{' '}
-                  with <strong>{Math.round((data.prediction.confidence || 0) * 100)}% confidence</strong>.
+                  with <strong>{Math.round((data.prediction.confidence || 0) * 100)}% model probability</strong> (not clinical confidence).
                 </div>
                 {data.prediction.explanation && (
                   <div style={{ marginTop: 6, fontSize: '0.84rem', color: 'var(--ink-soft)' }}>
@@ -316,7 +316,7 @@ export default function MLExplanation() {
             </div>
 
             <h3 style={{ fontSize: '0.94rem', marginBottom: 12, fontWeight: 700 }}>
-              Probability distribution across all health focus areas
+              Model probability distribution across wellness categories
             </h3>
 
             <div className="table-container">
@@ -325,7 +325,7 @@ export default function MLExplanation() {
                   <tr>
                     <th>Category</th>
                     <th style={{ width: '45%' }}>Probability Distribution</th>
-                    <th className="num">Calculated Likelihood</th>
+                    <th className="num">Model Probability</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -360,7 +360,7 @@ export default function MLExplanation() {
             title="Deterministic Safety Mode Active"
             description={
               data?.prediction?.reason ||
-              'Recommendations are currently guided by deterministic clinical rules and health targets.'
+              'Recommendations are currently guided by configured wellness rules and profile targets.'
             }
           />
         )}
@@ -371,7 +371,7 @@ export default function MLExplanation() {
       {/* Profile Features Input Vector */}
       <Card
         title="Features Derived from Your Profile"
-        sub="The exact 14 normalized values supplied to the recommendation ranking pipeline"
+        sub="The 14 engineered values supplied to the classifier; these use different units and scales"
         icon={Cpu}
       >
         <div className="table-container">
@@ -379,8 +379,8 @@ export default function MLExplanation() {
             <thead>
               <tr>
                 <th>Feature Name</th>
-                <th className="num">Normalized Value</th>
-                <th>Clinical Interpretation</th>
+                <th className="num">Feature Value</th>
+                <th>Feature Description</th>
               </tr>
             </thead>
             <tbody>
@@ -403,13 +403,13 @@ export default function MLExplanation() {
       {/* Dataset & Training Provenance */}
       <div style={{ height: 28 }} />
       <Card
-        title="Training Dataset & Clinical Governance"
+        title="Training Dataset & Provenance"
         sub="Audit trail and hyperparameters for model validation"
         icon={Database}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--ink)' }}>
-            <strong>Data Source:</strong> {data?.data_source || 'Clinical lifestyle synthesis dataset'}
+            <strong>Data Source:</strong> {data?.data_source || 'Data source unavailable'}
           </p>
           <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--ink-soft)' }}>
             <strong>Last Trained:</strong>{' '}
@@ -430,7 +430,7 @@ export default function MLExplanation() {
           >
             <ShieldCheck size={18} style={{ color: '#10b981', flexShrink: 0 }} />
             <span>
-              <strong>Zero-Tolerance Safety Protocol:</strong> Machine learning algorithms only re-rank candidate recommendations that have already satisfied 100% of the patient&apos;s allergen and medical exclusion rules.
+              <strong>General wellness only:</strong> Model categories support ranking alongside configured filters. They are not diagnoses, and these filters do not establish medical safety.
             </span>
           </div>
         </div>

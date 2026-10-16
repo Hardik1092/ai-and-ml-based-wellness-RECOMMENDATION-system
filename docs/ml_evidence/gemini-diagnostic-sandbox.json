@@ -1,0 +1,14 @@
+{
+  "date_utc": "2026-10-16T09:24:09.508030+00:00",
+  "api_version": "v1beta",
+  "configured_model": "gemini-1.5-flash",
+  "credential_present": true,
+  "configuration_hashes_before": {
+    "backend\\.env": "ab263212825626d5ac93521cb659ea4b5e835a3169505b74809986827e41025f",
+    "ai-ml\\.env": "e685b24d5243a70df06d9895c9f50e32ee7fbc002f1860e77122bd78715d173a",
+    "backend\\src\\config\\env.js": "7409e40796fd93fe12f9573bf86729ce88012639d355fbdc0ee9d750f9ce1aa7",
+    "ai-ml\\app\\config.py": "c9cc8e3979a165cb596c5e497a90ffcb376677c0a570a6943be2bc5b8072bd57"
+  },
+  "blocker": "ConnectError",
+  "configuration_unchanged": true
+}

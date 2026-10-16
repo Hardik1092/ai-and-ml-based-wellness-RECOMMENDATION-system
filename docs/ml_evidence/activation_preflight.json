@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "model_path": "C:\\Users\\ASUS\\Desktop\\cep my\\CEP_Project\\ai-ml\\models\\cep-20k-v1\\model.pkl",
+  "model_sha256": "4d131cc7cbd2b8350cc1338adf8cc2f6447a6f3b889feb18b8e4fe7b0ef7729e",
+  "model_type": "HistGradientBoostingClassifier",
+  "features": [
+    "bmi",
+    "age",
+    "activity_score",
+    "sleep_hours",
+    "sleep_adequacy",
+    "hydration_ratio",
+    "hydration_adequacy",
+    "exercise_minutes",
+    "exercise_adequacy",
+    "steps_ratio",
+    "calorie_ratio",
+    "stress_level",
+    "goal_code",
+    "gender_code"
+  ],
+  "classes": [
+    "activity_focus",
+    "balanced_wellness",
+    "fitness_improvement",
+    "hydration_focus",
+    "sleep_focus",
+    "weight_management"
+  ],
+  "sklearn": "1.6.0",
+  "profiles_checked": 11,
+  "preprocessing": "Unscaled existing engineered features; recorded raw/backend parity reconfirmed",
+  "original_model_sha256": "9c5d7598ba2b33ad1155d1780b6021dd923f8fcc34bfe250236246ce3453c29c"
+}

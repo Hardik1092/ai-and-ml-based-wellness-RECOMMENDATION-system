@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { Recommendation } = require('../models');
 
 async function main() {
-  await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/wellness_db');
+  await mongoose.connect(process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/wellness_db');
   console.log('Connected to DB');
 
   const all = await Recommendation.find().sort({ updatedAt: -1 });

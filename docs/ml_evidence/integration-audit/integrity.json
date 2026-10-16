@@ -1,0 +1,15 @@
+{
+  "changed_existing_files": [],
+  "all_existing_application_sources_models_and_credentials_unchanged": true,
+  "snapshot_files": 276,
+  "backend_tests_passed": 71,
+  "backend_suites": 8,
+  "audit_tests": 12,
+  "python_tests_passed": 44,
+  "python_training_tests_excluded": 6,
+  "frontend_build": "passed",
+  "live_engineered_vectors_match": 6,
+  "live_raw_vectors_match_current_source": 5,
+  "live_cases": 6,
+  "authenticated_browser_pipeline": "not verified"
+}

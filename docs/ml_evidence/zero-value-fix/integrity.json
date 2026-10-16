@@ -1,0 +1,17 @@
+{
+  "changed_existing_files": [
+    "ai-ml/app/features/engineering.py",
+    "backend/src/services/featureBuilder.js",
+    "docs/ML_ACTIVATION_FOLLOWUPS.md"
+  ],
+  "all_other_snapshotted_files_unchanged": true,
+  "models_and_credentials_unchanged": true,
+  "original_snapshot_count": 268,
+  "tests": {
+    "focused_backend": 8,
+    "full_backend": 59,
+    "focused_python": 9,
+    "python_no_training": 44,
+    "python_excluded_training": 6
+  }
+}

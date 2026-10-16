@@ -19,6 +19,7 @@ const feedbackRoutes = require('./routes/feedbackRoutes');
 const mlRoutes = require('./routes/mlRoutes');
 const assistantRoutes = require('./routes/assistantRoutes');
 const logRoutes = require('./routes/logRoutes');
+const { apiLimiter } = require('./middleware/rateLimiter');
 
 function createApp({ sessionStore } = {}) {
   const app = express();
@@ -58,6 +59,9 @@ function createApp({ sessionStore } = {}) {
     });
   }
   app.use(session(sessionOptions));
+  if (env.nodeEnv !== 'test') {
+    app.use('/api', apiLimiter);
+  }
 
   app.get('/api/health', (_req, res) => {
     res.json({ success: true, message: 'API is running', disclaimer: DISCLAIMER });

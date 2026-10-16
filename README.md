@@ -14,7 +14,7 @@ transparent content-based scoring.
 React (Vite) talks to a Node.js Express API. Express owns authentication,
 health metrics, the rule engine, content-based ranking, and MongoDB persistence.
 A separate Python FastAPI service hosts scikit-learn. Optional OpenAI / Gemini /
-Llama wording sits after safety filtering and never overrides it.
+Llama can generate additional recommendations; output filters are not clinical validation.
 
 See [docs/architecture.md](docs/architecture.md).
 
@@ -100,10 +100,15 @@ Demo login: `demo@wellness.local` / `Demo1234` (fictional).
 ```bash
 cd ai-ml
 source .venv/bin/activate
-python -m app.training.train
+python -m app.training.train --dataset data/cep_ml_features_20000.csv --benchmark ../CEP_Synthetic_Data_20000/cep_ml_llm_benchmark_cases_200.csv --output-dir models/cep-20k-v2 --seed 42
 ```
 
 The dataset is a **student/demo synthetic set**, not medical data.
+Use a new output directory per experiment. The verified candidate is already saved
+under `ai-ml/models/cep-20k-v1/`; original model files are preserved. See
+[the ML workflow](docs/ml.md) for Windows commands, activation, reports and the
+blocked Gemini benchmark. Training endpoints now require explicit administrator
+configuration, and automatic feedback promotion is disabled.
 
 ### 5. Run
 
